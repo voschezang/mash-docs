@@ -5,3 +5,4 @@ build:
 
 copy:
 	cp -r ../mash/docs/build/html docs
+	rm -rf docs/_sources
