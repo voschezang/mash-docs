@@ -1,7 +1,0 @@
-html\_table module
-==================
-
-.. automodule:: html_table
-   :members:
-   :undoc-members:
-   :show-inheritance:
