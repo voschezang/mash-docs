@@ -4,6 +4,8 @@ build:
 	make copy
 
 copy:
+	mkdir -p docs
+	rm -rf docs/static
 	cp -r ../mash/docs/build/html/* docs/
 	# omit source code
 	rm -rf docs/_sources
