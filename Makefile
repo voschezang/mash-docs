@@ -4,5 +4,5 @@ build:
 	make copy
 
 copy:
-	cp -r ../mash/docs/build/html docs
+	cp -r ../mash/docs/build/html/* docs/
 	rm -rf docs/_sources
