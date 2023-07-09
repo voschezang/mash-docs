@@ -1,0 +1,7 @@
+parallel\_requests module
+=========================
+
+.. automodule:: parallel_requests
+   :members:
+   :undoc-members:
+   :show-inheritance:

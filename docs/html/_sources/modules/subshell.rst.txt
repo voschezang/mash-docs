@@ -1,0 +1,7 @@
+subshell module
+===============
+
+.. automodule:: subshell
+   :members:
+   :undoc-members:
+   :show-inheritance:

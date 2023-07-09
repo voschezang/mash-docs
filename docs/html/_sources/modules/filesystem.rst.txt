@@ -1,0 +1,45 @@
+filesystem package
+==================
+
+Submodules
+----------
+
+filesystem.discoverable module
+------------------------------
+
+.. automodule:: filesystem.discoverable
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+filesystem.filesystem module
+----------------------------
+
+.. automodule:: filesystem.filesystem
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+filesystem.scope module
+-----------------------
+
+.. automodule:: filesystem.scope
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+filesystem.view module
+----------------------
+
+.. automodule:: filesystem.view
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: filesystem
+   :members:
+   :undoc-members:
+   :show-inheritance:

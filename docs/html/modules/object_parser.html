@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>object_parser package &#8212; Mash  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/agogo.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="object_parser_server module" href="object_parser_server.html" />
+    <link rel="prev" title="io_util module" href="io_util.html" /> 
+  </head><body>
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="../index.html">Mash  documentation</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="io_util.html" title="io_util module"
+             accesskey="P">previous</a> |
+          <a href="object_parser_server.html" title="object_parser_server module"
+             accesskey="N">next</a> |
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="object-parser-package">
+<h1>object_parser package<a class="headerlink" href="#object-parser-package" title="Permalink to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="module-object_parser.errors">
+<span id="object-parser-errors-module"></span><h2>object_parser.errors module<a class="headerlink" href="#module-object_parser.errors" title="Permalink to this heading">¶</a></h2>
+<dl class="py exception">
+<dt class="sig sig-object py" id="object_parser.errors.BuildError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">object_parser.errors.</span></span><span class="sig-name descname"><span class="pre">BuildError</span></span><a class="headerlink" href="#object_parser.errors.BuildError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#object_parser.errors.SpecError" title="object_parser.errors.SpecError"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecError</span></code></a></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="object_parser.errors.BuildErrors">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">object_parser.errors.</span></span><span class="sig-name descname"><span class="pre">BuildErrors</span></span><a class="headerlink" href="#object_parser.errors.BuildErrors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#object_parser.errors.SpecError" title="object_parser.errors.SpecError"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecError</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="object_parser.errors.ErrorMessages">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">object_parser.errors.</span></span><span class="sig-name descname"><span class="pre">ErrorMessages</span></span><a class="headerlink" href="#object_parser.errors.ErrorMessages" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A static class with can be subclassed</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="object_parser.errors.ErrorMessages.invalid_key_format">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">invalid_key_format</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#object_parser.errors.ErrorMessages.invalid_key_format" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="object_parser.errors.ErrorMessages.missing_mandatory_key">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">missing_mandatory_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></span><a class="headerlink" href="#object_parser.errors.ErrorMessages.missing_mandatory_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="object_parser.errors.ErrorMessages.no_type_annotations">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">no_type_annotations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></span><a class="headerlink" href="#object_parser.errors.ErrorMessages.no_type_annotations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="object_parser.errors.ErrorMessages.unexpected_key">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">unexpected_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#object_parser.errors.ErrorMessages.unexpected_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="object_parser.errors.SpecError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">object_parser.errors.</span></span><span class="sig-name descname"><span class="pre">SpecError</span></span><a class="headerlink" href="#object_parser.errors.SpecError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="object_parser.errors.SpecErrors">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">object_parser.errors.</span></span><span class="sig-name descname"><span class="pre">SpecErrors</span></span><a class="headerlink" href="#object_parser.errors.SpecErrors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#object_parser.errors.SpecError" title="object_parser.errors.SpecError"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecError</span></code></a></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="object_parser.errors.to_string">
+<span class="sig-prename descclassname"><span class="pre">object_parser.errors.</span></span><span class="sig-name descname"><span class="pre">to_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">errors</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#object_parser.errors.BuildErrors" title="object_parser.errors.BuildErrors"><span class="pre">BuildErrors</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></span><a class="headerlink" href="#object_parser.errors.to_string" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-object_parser.factory">
+<span id="object-parser-factory-module"></span><h2>object_parser.factory module<a class="headerlink" href="#module-object_parser.factory" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="object_parser.factory.Factory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">object_parser.factory.</span></span><span class="sig-name descname"><span class="pre">Factory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls:</span> <span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_keys:</span> <span class="pre">~typing.List[str]</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">errors=&lt;class</span> <span class="pre">'mash.object_parser.errors.ErrorMessages'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#object_parser.factory.Factory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></a></p>
+<p>An interface for instantiating objects from json-like data.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="object_parser.factory.Factory.build">
+<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#object_parser.factory.Factory.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize <cite>self.cls</cite> with fields from <cite>data</cite>.
+All child objects are recursively instantiated as well, based on type annotations.</p>
+<p>See object_parser_example.py for a larger usecase example.</p>
+<section id="raises">
+<h3>Raises<a class="headerlink" href="#raises" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>BuildError (for a single field)</p></li>
+<li><p>BuildErrors (for multiple invalid fields).</p></li>
+</ul>
+</section>
+<section id="user-defineable-methods">
+<h3>User-defineable methods<a class="headerlink" href="#user-defineable-methods" title="Permalink to this heading">¶</a></h3>
+<p>Process values
+- <cite>cls.parse_value()</cite> can be used to pre-process input values before instantiating objects
+- <cite>cls.__post_init__()</cite> can be used to check an object after initialization</p>
+<p>Process keys
+- <cite>cls.parse_key()</cite> can be used to pre-process input keys.
+- <cite>cls.verify_key_format()</cite> defaults to verify_key_format
+- <cite>cls._key_synonyms: dict</cite> can be used to define alternative keys</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="object_parser.factory.Factory.build_instance">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">build_instance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><span class="pre">object</span></a></span></span><a class="headerlink" href="#object_parser.factory.Factory.build_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build an instance of <cite>self.cls</cite>, after parsing input data but before finializing.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="object_parser.factory.Factory.error_prefix">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">error_prefix</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></em><a class="headerlink" href="#object_parser.factory.Factory.error_prefix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="object_parser.factory.Factory.parent_path">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parent_path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></em><a class="headerlink" href="#object_parser.factory.Factory.parent_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="object_parser.factory.Factory.parse_value">
+<span class="sig-name descname"><span class="pre">parse_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><span class="pre">object</span></a></span></span><a class="headerlink" href="#object_parser.factory.Factory.parse_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use the optional method “parse_value” in <cite>cls</cite> to parse a value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="object_parser.factory.Factory.verify_key_format">
+<span class="sig-name descname"><span class="pre">verify_key_format</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#object_parser.factory.Factory.verify_key_format" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify key format.
+Either using the optional method “parse_value” in <cite>cls</cite>, or otherwise
+using a default verification.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="object_parser.factory.JSONFactory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">object_parser.factory.</span></span><span class="sig-name descname"><span class="pre">JSONFactory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls:</span> <span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_keys:</span> <span class="pre">~typing.List[str]</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">errors=&lt;class</span> <span class="pre">'mash.object_parser.errors.ErrorMessages'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#object_parser.factory.JSONFactory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#object_parser.factory.Factory" title="object_parser.factory.Factory"><code class="xref py py-class docutils literal notranslate"><span class="pre">Factory</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="object_parser.factory.JSONFactory.build_enum">
+<span class="sig-name descname"><span class="pre">build_enum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.11)"><span class="pre">Enum</span></a></span></span><a class="headerlink" href="#object_parser.factory.JSONFactory.build_enum" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="object_parser.factory.JSONFactory.build_field">
+<span class="sig-name descname"><span class="pre">build_field</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#object_parser.factory.JSONFactory.build_field" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="object_parser.factory.JSONFactory.build_fields">
+<span class="sig-name descname"><span class="pre">build_fields</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><span class="pre">dict</span></a></span></span><a class="headerlink" href="#object_parser.factory.JSONFactory.build_fields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate all fields in <cite>cls</cite>, based its type annotations and the values in <cite>data</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="object_parser.factory.JSONFactory.build_from_dict">
+<span class="sig-name descname"><span class="pre">build_from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fields</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><span class="pre">dict</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#object_parser.factory.JSONFactory.build_from_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="object_parser.factory.JSONFactory.build_generic_Dict">
+<span class="sig-name descname"><span class="pre">build_generic_Dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fields</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#object_parser.factory.JSONFactory.build_generic_Dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="object_parser.factory.JSONFactory.build_instance">
+<span class="sig-name descname"><span class="pre">build_instance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><span class="pre">object</span></a></span></span><a class="headerlink" href="#object_parser.factory.JSONFactory.build_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Init either a <cite>dataclass, list, Enum</cite> or custom class.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="object_parser.factory.JSONFactory.build_list">
+<span class="sig-name descname"><span class="pre">build_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">items</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><span class="pre">list</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><span class="pre">list</span></a></span></span><a class="headerlink" href="#object_parser.factory.JSONFactory.build_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="object_parser.factory.JSONFactory.build_object">
+<span class="sig-name descname"><span class="pre">build_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><span class="pre">object</span></a></span></span><a class="headerlink" href="#object_parser.factory.JSONFactory.build_object" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="object_parser.factory.build">
+<span class="sig-prename descclassname"><span class="pre">object_parser.factory.</span></span><span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.11)"><span class="pre">type</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">json</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><span class="pre">dict</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#object_parser.factory.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize <cite>cls</cite> with fields from <cite>data</cite>.</p>
+</dd></dl>
+
+</section>
+<section id="module-object_parser.oas">
+<span id="object-parser-oas-module"></span><h2>object_parser.oas module<a class="headerlink" href="#module-object_parser.oas" title="Permalink to this heading">¶</a></h2>
+<p>Generate a OAS/Swagger component
+See: [OAS](<a class="reference external" href="https://swagger.io/specification/">https://swagger.io/specification/</a>)</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="object_parser.oas.K">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">object_parser.oas.</span></span><span class="sig-name descname"><span class="pre">K</span></span><a class="headerlink" href="#object_parser.oas.K" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>OAS keys</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="object_parser.oas.K.components">
+<span class="sig-name descname"><span class="pre">components</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'components'</span></em><a class="headerlink" href="#object_parser.oas.K.components" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="object_parser.oas.K.doc">
+<span class="sig-name descname"><span class="pre">doc</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'description'</span></em><a class="headerlink" href="#object_parser.oas.K.doc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="object_parser.oas.K.props">
+<span class="sig-name descname"><span class="pre">props</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'properties'</span></em><a class="headerlink" href="#object_parser.oas.K.props" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="object_parser.oas.K.schemas">
+<span class="sig-name descname"><span class="pre">schemas</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'schemas'</span></em><a class="headerlink" href="#object_parser.oas.K.schemas" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="object_parser.oas.OAS">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">object_parser.oas.</span></span><span class="sig-name descname"><span class="pre">OAS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#object_parser.oas.OAS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
+<p>A key-value map that represents an OAS.
+It that can be converted to JSON or YAML and viewed in:
+<a class="reference external" href="https://editor.swagger.io/">https://editor.swagger.io/</a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="object_parser.oas.OAS.add_array">
+<span class="sig-name descname"><span class="pre">add_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">child_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">child</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#object_parser.oas.OAS.add_array" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="object_parser.oas.OAS.components">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">components</span></span><a class="headerlink" href="#object_parser.oas.OAS.components" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="object_parser.oas.OAS.extend">
+<span class="sig-name descname"><span class="pre">extend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><span class="pre">object</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#object_parser.oas.OAS.extend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate OAS/Swagger components from a class
+See: [OAS](<a class="reference external" href="https://swagger.io/specification/">https://swagger.io/specification/</a>)
+E.g.
+<a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>yml
+components:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>schemas:</dt><dd><dl class="simple">
+<dt>User:</dt><dd><dl class="simple">
+<dt>properties:</dt><dd><dl class="simple">
+<dt>id:</dt><dd><p>type: integer</p>
+</dd>
+<dt>name:</dt><dd><p>type: string</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<p><a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">`</span></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="object_parser.oas.V">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">object_parser.oas.</span></span><span class="sig-name descname"><span class="pre">V</span></span><a class="headerlink" href="#object_parser.oas.V" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>OAS values</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="object_parser.oas.V.ref">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ref</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#object_parser.oas.V.ref" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="object_parser.oas.has_known_type">
+<span class="sig-prename descclassname"><span class="pre">object_parser.oas.</span></span><span class="sig-name descname"><span class="pre">has_known_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#object_parser.oas.has_known_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="object_parser.oas.infer_oas_type">
+<span class="sig-prename descclassname"><span class="pre">object_parser.oas.</span></span><span class="sig-name descname"><span class="pre">infer_oas_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#object_parser.oas.infer_oas_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="object_parser.oas.oas_component">
+<span class="sig-prename descclassname"><span class="pre">object_parser.oas.</span></span><span class="sig-name descname"><span class="pre">oas_component</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">doc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#object_parser.oas.oas_component" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="object_parser.oas.oas_ref">
+<span class="sig-prename descclassname"><span class="pre">object_parser.oas.</span></span><span class="sig-name descname"><span class="pre">oas_ref</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#object_parser.oas.oas_ref" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="object_parser.oas.path_create">
+<span class="sig-prename descclassname"><span class="pre">object_parser.oas.</span></span><span class="sig-name descname"><span class="pre">path_create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">verb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'POST'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#object_parser.oas.path_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-object_parser.object_parser">
+<span id="object-parser-object-parser-module"></span><h2>object_parser.object_parser module<a class="headerlink" href="#module-object_parser.object_parser" title="Permalink to this heading">¶</a></h2>
+<p>Parse json-like data and init objects such as dataclasses.</p>
+<p># Classes</p>
+<ul class="simple">
+<li><p><cite>factory.Factory</cite> is a generic interface.</p></li>
+<li><p><cite>factory.JSONFactory</cite> is a concrete implementation.</p></li>
+<li><p><cite>errors.ErrorMessages</cite> exposes a few custom strings.</p></li>
+</ul>
+<dl class="py function">
+<dt class="sig sig-object py" id="object_parser.object_parser.find_synonym">
+<span class="sig-prename descclassname"><span class="pre">object_parser.object_parser.</span></span><span class="sig-name descname"><span class="pre">find_synonym</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#object_parser.object_parser.find_synonym" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="object_parser.object_parser.parse_field_key">
+<span class="sig-prename descclassname"><span class="pre">object_parser.object_parser.</span></span><span class="sig-name descname"><span class="pre">parse_field_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></span><a class="headerlink" href="#object_parser.object_parser.parse_field_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="object_parser.object_parser.parse_field_keys">
+<span class="sig-prename descclassname"><span class="pre">object_parser.object_parser.</span></span><span class="sig-name descname"><span class="pre">parse_field_keys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><span class="pre">dict</span></a></span></span><a class="headerlink" href="#object_parser.object_parser.parse_field_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="object_parser.object_parser.verify_key_format">
+<span class="sig-prename descclassname"><span class="pre">object_parser.object_parser.</span></span><span class="sig-name descname"><span class="pre">verify_key_format</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#object_parser.object_parser.verify_key_format" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-object_parser.object_parser_standards">
+<span id="object-parser-object-parser-standards-module"></span><h2>object_parser.object_parser_standards module<a class="headerlink" href="#module-object_parser.object_parser_standards" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="object_parser.object_parser_standards.A">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">object_parser.object_parser_standards.</span></span><span class="sig-name descname"><span class="pre">A</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#object_parser.object_parser_standards.A" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="object_parser.object_parser_standards.A.x">
+<span class="sig-name descname"><span class="pre">x</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#object_parser.object_parser_standards.A.x" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="object_parser.object_parser_standards.A.y">
+<span class="sig-name descname"><span class="pre">y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#object_parser.object_parser_standards.A.y" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="object_parser.object_parser_standards.A.z">
+<span class="sig-name descname"><span class="pre">z</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></em><a class="headerlink" href="#object_parser.object_parser_standards.A.z" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="object_parser.object_parser_standards.B">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">object_parser.object_parser_standards.</span></span><span class="sig-name descname"><span class="pre">B</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">left</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#object_parser.object_parser_standards.A" title="object_parser.object_parser_standards.A"><span class="pre">object_parser.object_parser_standards.A</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#object_parser.object_parser_standards.A" title="object_parser.object_parser_standards.A"><span class="pre">object_parser.object_parser_standards.A</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">top</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#object_parser.object_parser_standards.A" title="object_parser.object_parser_standards.A"><span class="pre">object_parser.object_parser_standards.A</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">bottom</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#object_parser.object_parser_standards.A" title="object_parser.object_parser_standards.A"><span class="pre">object_parser.object_parser_standards.A</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#object_parser.object_parser_standards.B" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="object_parser.object_parser_standards.B.bottom">
+<span class="sig-name descname"><span class="pre">bottom</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#object_parser.object_parser_standards.A" title="object_parser.object_parser_standards.A"><span class="pre">A</span></a></em><a class="headerlink" href="#object_parser.object_parser_standards.B.bottom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="object_parser.object_parser_standards.B.left">
+<span class="sig-name descname"><span class="pre">left</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#object_parser.object_parser_standards.A" title="object_parser.object_parser_standards.A"><span class="pre">A</span></a></em><a class="headerlink" href="#object_parser.object_parser_standards.B.left" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="object_parser.object_parser_standards.B.right">
+<span class="sig-name descname"><span class="pre">right</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#object_parser.object_parser_standards.A" title="object_parser.object_parser_standards.A"><span class="pre">A</span></a></em><a class="headerlink" href="#object_parser.object_parser_standards.B.right" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="object_parser.object_parser_standards.B.top">
+<span class="sig-name descname"><span class="pre">top</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#object_parser.object_parser_standards.A" title="object_parser.object_parser_standards.A"><span class="pre">A</span></a></em><a class="headerlink" href="#object_parser.object_parser_standards.B.top" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="object_parser.object_parser_standards.C">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">object_parser.object_parser_standards.</span></span><span class="sig-name descname"><span class="pre">C</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#object_parser.object_parser_standards.A" title="object_parser.object_parser_standards.A"><span class="pre">object_parser.object_parser_standards.A</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#object_parser.object_parser_standards.B" title="object_parser.object_parser_standards.B"><span class="pre">object_parser.object_parser_standards.B</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#object_parser.object_parser_standards.A" title="object_parser.object_parser_standards.A"><span class="pre">object_parser.object_parser_standards.A</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#object_parser.object_parser_standards.C" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="object_parser.object_parser_standards.C.a">
+<span class="sig-name descname"><span class="pre">a</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#object_parser.object_parser_standards.A" title="object_parser.object_parser_standards.A"><span class="pre">A</span></a></em><a class="headerlink" href="#object_parser.object_parser_standards.C.a" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="object_parser.object_parser_standards.C.b">
+<span class="sig-name descname"><span class="pre">b</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#object_parser.object_parser_standards.B" title="object_parser.object_parser_standards.B"><span class="pre">B</span></a></em><a class="headerlink" href="#object_parser.object_parser_standards.C.b" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="object_parser.object_parser_standards.C.x">
+<span class="sig-name descname"><span class="pre">x</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></em><a class="headerlink" href="#object_parser.object_parser_standards.C.x" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="object_parser.object_parser_standards.C.y">
+<span class="sig-name descname"><span class="pre">y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></em><a class="headerlink" href="#object_parser.object_parser_standards.C.y" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="object_parser.object_parser_standards.C.z">
+<span class="sig-name descname"><span class="pre">z</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#object_parser.object_parser_standards.A" title="object_parser.object_parser_standards.A"><span class="pre">A</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#object_parser.object_parser_standards.C.z" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="object_parser.object_parser_standards.dictionary_mapping">
+<span class="sig-prename descclassname"><span class="pre">object_parser.object_parser_standards.</span></span><span class="sig-name descname"><span class="pre">dictionary_mapping</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#object_parser.object_parser_standards.dictionary_mapping" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="object_parser.object_parser_standards.differencing">
+<span class="sig-prename descclassname"><span class="pre">object_parser.object_parser_standards.</span></span><span class="sig-name descname"><span class="pre">differencing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#object_parser.object_parser_standards.differencing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-object_parser">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-object_parser" title="Permalink to this heading">¶</a></h2>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          
+          <h3>Table of Contents</h3>
+          <p class="caption" role="heading"><span class="caption-text">Usage:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">README</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SHELL.html">Implementation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Library Reference:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../reference.html">Library Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Packages:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="filesystem.html">filesystem</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">object parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell.html">shell</a></li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+            </form>
+          </div>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="io_util.html" title="io_util module"
+              >previous</a> |
+            <a href="object_parser_server.html" title="object_parser_server module"
+              >next</a> |
+            <a href="../py-modindex.html" title="Python Module Index"
+              >modules</a> |
+            <a href="../genindex.html" title="General Index"
+              >index</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="../_sources/modules/object_parser.rst.txt"
+                rel="nofollow">Show Source</a>
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, Voschezang.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

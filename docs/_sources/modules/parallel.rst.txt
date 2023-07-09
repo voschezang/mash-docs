@@ -1,0 +1,7 @@
+parallel module
+===============
+
+.. automodule:: parallel
+   :members:
+   :undoc-members:
+   :show-inheritance:

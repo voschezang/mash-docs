@@ -1,0 +1,7 @@
+doc\_inference module
+=====================
+
+.. automodule:: doc_inference
+   :members:
+   :undoc-members:
+   :show-inheritance:

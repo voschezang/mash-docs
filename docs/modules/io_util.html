@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>io_util module &#8212; Mash  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/agogo.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="object_parser package" href="object_parser.html" />
+    <link rel="prev" title="html_table_data module" href="html_table_data.html" /> 
+  </head><body>
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="../index.html">Mash  documentation</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="html_table_data.html" title="html_table_data module"
+             accesskey="P">previous</a> |
+          <a href="object_parser.html" title="object_parser package"
+             accesskey="N">next</a> |
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-io_util">
+<span id="io-util-module"></span><h1>io_util module<a class="headerlink" href="#module-io_util" title="Permalink to this heading">¶</a></h1>
+<p>Utils
+- printing
+- parsing cli args</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="io_util.ArgparseWrapper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">io_util.</span></span><span class="sig-name descname"><span class="pre">ArgparseWrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conflict_handler='resolve'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formatter_class=&lt;class</span> <span class="pre">'argparse.RawTextHelpFormatter'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#io_util.ArgparseWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="io_util.add_default_args">
+<span class="sig-prename descclassname"><span class="pre">io_util.</span></span><span class="sig-name descname"><span class="pre">add_default_args</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser" title="(in Python v3.11)"><span class="pre">ArgumentParser</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#io_util.add_default_args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="io_util.allow_all_args">
+<span class="sig-prename descclassname"><span class="pre">io_util.</span></span><span class="sig-name descname"><span class="pre">allow_all_args</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#io_util.allow_all_args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="io_util.bold">
+<span class="sig-prename descclassname"><span class="pre">io_util.</span></span><span class="sig-name descname"><span class="pre">bold</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#io_util.bold" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="io_util.catch_output">
+<span class="sig-prename descclassname"><span class="pre">io_util.</span></span><span class="sig-name descname"><span class="pre">catch_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.11)"><span class="pre">Callable</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">func_kwds</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></span><a class="headerlink" href="#io_util.catch_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run func while temporarily redirecting stdout.
+Then return the result from stdout.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="io_util.check_output">
+<span class="sig-prename descclassname"><span class="pre">io_util.</span></span><span class="sig-name descname"><span class="pre">check_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></span><a class="headerlink" href="#io_util.check_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Similar to subprocess.check_output, but with more detailed error messages</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="io_util.confirm">
+<span class="sig-prename descclassname"><span class="pre">io_util.</span></span><span class="sig-name descname"><span class="pre">confirm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Continue</span> <span class="pre">[Y/n]?</span> <span class="pre">'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#io_util.confirm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ask user for confirmation
+Default to yes</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="io_util.debug">
+<span class="sig-prename descclassname"><span class="pre">io_util.</span></span><span class="sig-name descname"><span class="pre">debug</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#io_util.debug" title="Permalink to this definition">¶</a></dt>
+<dd><p>Similar to logging.debug, but without custom string formatting</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="io_util.find_argument">
+<span class="sig-prename descclassname"><span class="pre">io_util.</span></span><span class="sig-name descname"><span class="pre">find_argument</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser" title="(in Python v3.11)"><span class="pre">ArgumentParser</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'arg_name'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#io_util.find_argument" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="io_util.has_argument">
+<span class="sig-prename descclassname"><span class="pre">io_util.</span></span><span class="sig-name descname"><span class="pre">has_argument</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser" title="(in Python v3.11)"><span class="pre">ArgumentParser</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'arg_name'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#io_util.has_argument" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="io_util.has_output">
+<span class="sig-prename descclassname"><span class="pre">io_util.</span></span><span class="sig-name descname"><span class="pre">has_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream:</span> <span class="pre">~typing.TextIO</span> <span class="pre">=</span> <span class="pre">&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stdin&gt;'</span> <span class="pre">mode='r'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout=0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#io_util.has_output" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="io_util.log">
+<span class="sig-prename descclassname"><span class="pre">io_util.</span></span><span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file=&lt;_io.TextIOWrapper</span> <span class="pre">name='&lt;stderr&gt;'</span> <span class="pre">mode='w'</span> <span class="pre">encoding='utf-8'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix='\x1b[33m···\x1b[0m'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#io_util.log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print to stderr</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="io_util.log_once">
+<span class="sig-prename descclassname"><span class="pre">io_util.</span></span><span class="sig-name descname"><span class="pre">log_once</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">msgs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#io_util.log_once" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="io_util.print_shell_ready_signal">
+<span class="sig-prename descclassname"><span class="pre">io_util.</span></span><span class="sig-name descname"><span class="pre">print_shell_ready_signal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#io_util.print_shell_ready_signal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="io_util.python_is_run_in_test_mode">
+<span class="sig-prename descclassname"><span class="pre">io_util.</span></span><span class="sig-name descname"><span class="pre">python_is_run_in_test_mode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#io_util.python_is_run_in_test_mode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="io_util.read_file">
+<span class="sig-prename descclassname"><span class="pre">io_util.</span></span><span class="sig-name descname"><span class="pre">read_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#io_util.read_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="io_util.read_files">
+<span class="sig-prename descclassname"><span class="pre">io_util.</span></span><span class="sig-name descname"><span class="pre">read_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filenames</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#io_util.read_files" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="io_util.read_line">
+<span class="sig-prename descclassname"><span class="pre">io_util.</span></span><span class="sig-name descname"><span class="pre">read_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.TextIO" title="(in Python v3.11)"><span class="pre">TextIO</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#io_util.read_line" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="io_util.run_subprocess">
+<span class="sig-prename descclassname"><span class="pre">io_util.</span></span><span class="sig-name descname"><span class="pre">run_subprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></span><a class="headerlink" href="#io_util.run_subprocess" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper for subprocess.run
+Raise a RuntimeError on a non-zero exit status.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="io_util.set_verbosity">
+<span class="sig-prename descclassname"><span class="pre">io_util.</span></span><span class="sig-name descname"><span class="pre">set_verbosity</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#io_util.set_verbosity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="io_util.terminal_size">
+<span class="sig-prename descclassname"><span class="pre">io_util.</span></span><span class="sig-name descname"><span class="pre">terminal_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">os.terminal_size(columns=80,</span> <span class="pre">lines=100)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#io_util.terminal_size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="io_util.verbosity">
+<span class="sig-prename descclassname"><span class="pre">io_util.</span></span><span class="sig-name descname"><span class="pre">verbosity</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#io_util.verbosity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="io_util.warn">
+<span class="sig-prename descclassname"><span class="pre">io_util.</span></span><span class="sig-name descname"><span class="pre">warn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#io_util.warn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          
+          <h3>Table of Contents</h3>
+          <p class="caption" role="heading"><span class="caption-text">Usage:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">README</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SHELL.html">Implementation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Library Reference:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../reference.html">Library Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Packages:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="filesystem.html">filesystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="object_parser.html">object parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell.html">shell</a></li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+            </form>
+          </div>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="html_table_data.html" title="html_table_data module"
+              >previous</a> |
+            <a href="object_parser.html" title="object_parser package"
+              >next</a> |
+            <a href="../py-modindex.html" title="Python Module Index"
+              >modules</a> |
+            <a href="../genindex.html" title="General Index"
+              >index</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="../_sources/modules/io_util.rst.txt"
+                rel="nofollow">Show Source</a>
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, Voschezang.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>
