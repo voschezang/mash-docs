@@ -39,69 +39,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="module-verify_server">
-<span id="verify-server-module"></span><h1>verify_server module<a class="headerlink" href="#module-verify_server" title="Permalink to this heading">¶</a></h1>
-<dl class="py exception">
-<dt class="sig sig-object py" id="verify_server.VerificationException">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">verify_server.</span></span><span class="sig-name descname"><span class="pre">VerificationException</span></span><a class="headerlink" href="#verify_server.VerificationException" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a></p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="verify_server.connect">
-<span class="sig-prename descclassname"><span class="pre">verify_server.</span></span><span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hostname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">443</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#verify_server.connect" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="verify_server.infer_protocol_and_port_from_hostname">
-<span class="sig-prename descclassname"><span class="pre">verify_server.</span></span><span class="sig-name descname"><span class="pre">infer_protocol_and_port_from_hostname</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hostname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_port</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#verify_server.infer_protocol_and_port_from_hostname" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="verify_server.main">
-<span class="sig-prename descclassname"><span class="pre">verify_server.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#verify_server.main" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="verify_server.parse_hostname">
-<span class="sig-prename descclassname"><span class="pre">verify_server.</span></span><span class="sig-name descname"><span class="pre">parse_hostname</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hostname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_protocol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'http'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_port</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">80</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#verify_server.parse_hostname" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="verify_server.parse_port">
-<span class="sig-prename descclassname"><span class="pre">verify_server.</span></span><span class="sig-name descname"><span class="pre">parse_port</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#verify_server.parse_port" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="verify_server.parse_url">
-<span class="sig-prename descclassname"><span class="pre">verify_server.</span></span><span class="sig-name descname"><span class="pre">parse_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_scheme</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'http'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#verify_server.parse_url" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the scheme, domain, port and path or a url</p>
-<section id="parameters">
-<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">¶</a></h2>
-<p>The following inputs are supported:
-- <a class="reference external" href="https://example.com">https://example.com</a>
-- www.example.com:80
-- 1.0.0.1:443</p>
-</section>
-<section id="returns">
-<h2>Returns<a class="headerlink" href="#returns" title="Permalink to this heading">¶</a></h2>
-<dl class="simple">
-<dt>ParseResult(scheme=’http’, netloc=’example.com:443’, path=’/path;parameters’, params=’’,</dt><dd><p>query=’query’, fragment=’fragment’)</p>
-</dd>
-</dl>
-</section>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="verify_server.resolve">
-<span class="sig-prename descclassname"><span class="pre">verify_server.</span></span><span class="sig-name descname"><span class="pre">resolve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hostname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#verify_server.resolve" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="verify_server.resolve_then_connect">
-<span class="sig-prename descclassname"><span class="pre">verify_server.</span></span><span class="sig-name descname"><span class="pre">resolve_then_connect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hostname</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#verify_server.resolve_then_connect" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+  <section id="verify-server-module">
+<h1>verify_server module<a class="headerlink" href="#verify-server-module" title="Permalink to this heading">¶</a></h1>
 </section>
 
 
@@ -118,7 +57,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../README.html">README</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../SHELL.html">Implementation</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Library Reference:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Reference:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../reference.html">Library Reference</a></li>
 </ul>

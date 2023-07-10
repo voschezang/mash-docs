@@ -42,78 +42,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="module-parallel">
-<span id="parallel-module"></span><h1>parallel module<a class="headerlink" href="#module-parallel" title="Permalink to this heading">¶</a></h1>
-<p>Generic parallelization functions using asyncio.</p>
-<dl class="py function">
-<dt class="sig sig-object py" id="parallel.asynchronous">
-<span class="sig-prename descclassname"><span class="pre">parallel.</span></span><span class="sig-name descname"><span class="pre">asynchronous</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">concurrency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#parallel.asynchronous" title="Permalink to this definition">¶</a></dt>
-<dd><p>Executes func(task) for every task in tasks.</p>
-<section id="parameters">
-<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">¶</a></h2>
-<blockquote>
-<div><p>func : async funcion(client: aiohttp.ClientSession, <a href="#id1"><span class="problematic" id="id2">*</span></a>) -&gt; Result
-tasks : iterable of (unique) input for each function invocation
-* : constants arguments and keywords to be passed to each function</p>
-</div></blockquote>
-</section>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="parallel.main">
-<span class="sig-prename descclassname"><span class="pre">parallel.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#parallel.main" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="parallel.new_event_loop">
-<span class="sig-prename descclassname"><span class="pre">parallel.</span></span><span class="sig-name descname"><span class="pre">new_event_loop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#parallel.new_event_loop" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="parallel.run">
-<span class="sig-prename descclassname"><span class="pre">parallel.</span></span><span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">items</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#parallel.run" title="Permalink to this definition">¶</a></dt>
-<dd><p>Executes func(i) N x M times.
-It is assumed that all function invocations are independent.</p>
-<section id="id3">
-<h2>Parameters<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
-<blockquote>
-<div><p>func : async funcion(client: aiohttp.ClientSession, <a href="#id4"><span class="problematic" id="id5">*</span></a>) -&gt; Result
-items : inputs per function call
-batch_size : number of function call results that are yielded
-duration : timeout of the process. This evaluated between batches and not during batches.
-n_threads : int
-concurrency : max. number of async connections per thread
-<a href="#id6"><span class="problematic" id="id7">**</span></a>kwds : arguments for <cite>func</cite>. func(<a href="#id8"><span class="problematic" id="id9">**</span></a>kwds) must be threadsafe
-batches : iterable of iterables</p>
-</div></blockquote>
-</section>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="parallel.show_status">
-<span class="sig-prename descclassname"><span class="pre">parallel.</span></span><span class="sig-name descname"><span class="pre">show_status</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">status</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exceptions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_line</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#parallel.show_status" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="parallel.simple_custom_func">
-<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">parallel.</span></span><span class="sig-name descname"><span class="pre">simple_custom_func</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ClientSession</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#parallel.simple_custom_func" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="parallel.some_custom_func">
-<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">parallel.</span></span><span class="sig-name descname"><span class="pre">some_custom_func</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ClientSession</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#parallel.some_custom_func" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="parallel.try_task">
-<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">parallel.</span></span><span class="sig-name descname"><span class="pre">try_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">session</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">errors</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#parallel.try_task" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="parallel.worker">
-<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">parallel.</span></span><span class="sig-name descname"><span class="pre">worker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">queue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Queue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">errors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#parallel.worker" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+  <section id="parallel-module">
+<h1>parallel module<a class="headerlink" href="#parallel-module" title="Permalink to this heading">¶</a></h1>
 </section>
 
 
@@ -130,7 +60,7 @@ batches : iterable of iterables</p>
 <li class="toctree-l1"><a class="reference internal" href="../README.html">README</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../SHELL.html">Implementation</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Library Reference:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Reference:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../reference.html">Library Reference</a></li>
 </ul>

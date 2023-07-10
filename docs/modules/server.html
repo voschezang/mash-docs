@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>server module &#8212; Mash  documentation</title>
+    <title>server package &#8212; Mash  documentation</title>
     <link rel="stylesheet" type="text/css" href="../static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../static/agogo.css" />
     <link rel="stylesheet" type="text/css" href="../static/custom.css" />
@@ -42,42 +42,40 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="module-server">
-<span id="server-module"></span><h1>server module<a class="headerlink" href="#module-server" title="Permalink to this heading">¶</a></h1>
+  <section id="server-package">
+<h1>server package<a class="headerlink" href="#server-package" title="Permalink to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="module-server.repository">
+<span id="server-repository-module"></span><h2>server.repository module<a class="headerlink" href="#module-server.repository" title="Permalink to this heading">¶</a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="server.RawUser">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">server.</span></span><span class="sig-name descname"><span class="pre">RawUser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#server.RawUser" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="server.repository.Repository">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">server.repository.</span></span><span class="sig-name descname"><span class="pre">Repository</span></span><a class="headerlink" href="#server.repository.Repository" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="server.RawUser.email">
-<span class="sig-name descname"><span class="pre">email</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></em><a class="headerlink" href="#server.RawUser.email" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="server.RawUser.name">
-<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></em><a class="headerlink" href="#server.RawUser.name" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="server.repository.Repository.read">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#server.repository.Repository.read" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="server.create_user">
-<span class="sig-prename descclassname"><span class="pre">server.</span></span><span class="sig-name descname"><span class="pre">create_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#server.RawUser" title="server.RawUser"><span class="pre">RawUser</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#server.create_user" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="server.repository.create_user">
+<span class="sig-prename descclassname"><span class="pre">server.repository.</span></span><span class="sig-name descname"><span class="pre">create_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#server.repository.create_user" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="server.generate_user">
-<span class="sig-prename descclassname"><span class="pre">server.</span></span><span class="sig-name descname"><span class="pre">generate_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><span class="pre">dict</span></a></span></span><a class="headerlink" href="#server.generate_user" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+</section>
+<section id="module-server">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-server" title="Permalink to this heading">¶</a></h2>
+<p>A dummy web server.</p>
+<p>API endpoints
+- /verify server
+- /users
+- /documents</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="server.init">
 <span class="sig-prename descclassname"><span class="pre">server.</span></span><span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#server.init" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="server.init_db">
-<span class="sig-prename descclassname"><span class="pre">server.</span></span><span class="sig-name descname"><span class="pre">init_db</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#server.init_db" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
@@ -85,11 +83,7 @@
 <span class="sig-prename descclassname"><span class="pre">server.</span></span><span class="sig-name descname"><span class="pre">init_routes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#server.init_routes" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="server.url">
-<span class="sig-prename descclassname"><span class="pre">server.</span></span><span class="sig-name descname"><span class="pre">url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#server.url" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+</section>
 </section>
 
 
@@ -105,16 +99,18 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../README.html">README</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../SHELL.html">Implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SHELL_REFERENCE.html">Reference</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Library Reference:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../reference.html">Library Reference</a></li>
+<p class="caption" role="heading"><span class="caption-text">Reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">Library Reference</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Packages:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="filesystem.html">filesystem</a></li>
 <li class="toctree-l1"><a class="reference internal" href="object_parser.html">object parser</a></li>
 <li class="toctree-l1"><a class="reference internal" href="shell.html">shell</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">server</a></li>
 </ul>
 
           <div role="search">

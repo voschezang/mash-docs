@@ -14,7 +14,7 @@
     <script src="../static/sphinx_highlight.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="object_parser_server module" href="object_parser_server.html" />
+    <link rel="next" title="pipeline module" href="pipeline.html" />
     <link rel="prev" title="io_util module" href="io_util.html" /> 
   </head><body>
     <div class="header-wrapper" role="banner">
@@ -24,7 +24,7 @@
         <div class="rel" role="navigation" aria-label="related navigation">
           <a href="io_util.html" title="io_util module"
              accesskey="P">previous</a> |
-          <a href="object_parser_server.html" title="object_parser_server module"
+          <a href="pipeline.html" title="pipeline module"
              accesskey="N">next</a> |
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |
@@ -278,27 +278,17 @@ It that can be converted to JSON or YAML and viewed in:
 <span class="sig-name descname"><span class="pre">extend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><span class="pre">object</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#object_parser.oas.OAS.extend" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate OAS/Swagger components from a class
 See: [OAS](<a class="reference external" href="https://swagger.io/specification/">https://swagger.io/specification/</a>)
-E.g.
-<a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>yml
-components:</p>
-<blockquote>
-<div><dl class="simple">
-<dt>schemas:</dt><dd><dl class="simple">
-<dt>User:</dt><dd><dl class="simple">
-<dt>properties:</dt><dd><dl class="simple">
-<dt>id:</dt><dd><p>type: integer</p>
-</dd>
-<dt>name:</dt><dd><p>type: string</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd>
-</dl>
-</div></blockquote>
-<p><a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">`</span></a></p>
+E.g.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">components</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">schemas</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">User</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">properties</span><span class="p">:</span>
+<span class="w">                </span><span class="nt">id</span><span class="p">:</span>
+<span class="w">                    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">integer</span>
+<span class="w">                </span><span class="nt">name</span><span class="p">:</span>
+<span class="w">                    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </dd></dl>
@@ -481,7 +471,7 @@ components:</p>
 <li class="toctree-l1"><a class="reference internal" href="../README.html">README</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../SHELL.html">Implementation</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Library Reference:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Reference:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../reference.html">Library Reference</a></li>
 </ul>
@@ -490,6 +480,7 @@ components:</p>
 <li class="toctree-l1"><a class="reference internal" href="filesystem.html">filesystem</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">object parser</a></li>
 <li class="toctree-l1"><a class="reference internal" href="shell.html">shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="server.html">server</a></li>
 </ul>
 
           <div role="search">
@@ -511,7 +502,7 @@ components:</p>
           <div role="navigation" aria-label="related navigaton">
             <a href="io_util.html" title="io_util module"
               >previous</a> |
-            <a href="object_parser_server.html" title="object_parser_server module"
+            <a href="pipeline.html" title="pipeline module"
               >next</a> |
             <a href="../py-modindex.html" title="Python Module Index"
               >modules</a> |

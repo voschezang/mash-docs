@@ -14,7 +14,6 @@
     <script src="../static/sphinx_highlight.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="verify_server module" href="verify_server.html" />
     <link rel="prev" title="subshell module" href="subshell.html" /> 
   </head><body>
     <div class="header-wrapper" role="banner">
@@ -24,8 +23,6 @@
         <div class="rel" role="navigation" aria-label="related navigation">
           <a href="subshell.html" title="subshell module"
              accesskey="P">previous</a> |
-          <a href="verify_server.html" title="verify_server module"
-             accesskey="N">next</a> |
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |
           <a href="../genindex.html" title="General Index"
@@ -211,13 +208,13 @@ Elements with better matches are chosen first.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="util.for_all">
 <span class="sig-prename descclassname"><span class="pre">util.</span></span><span class="sig-name descname"><span class="pre">for_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">foreach_items</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.11)"><span class="pre">Sequence</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">predicate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.11)"><span class="pre">Callable</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#util.for_all" title="Permalink to this definition">¶</a></dt>
-<dd><p>Evaluate whether all item satisfy predicate(<a href="#id1"><span class="problematic" id="id2">*</span></a>args, item)</p>
+<dd><p>Evaluate whether all item satisfy <cite>predicate(*args, item)</cite></p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="util.for_any">
 <span class="sig-prename descclassname"><span class="pre">util.</span></span><span class="sig-name descname"><span class="pre">for_any</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">foreach_items</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.11)"><span class="pre">Sequence</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">predicate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.11)"><span class="pre">Callable</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="#util.for_any" title="Permalink to this definition">¶</a></dt>
-<dd><p>Evaluate whether any item satisfies predicate(<a href="#id3"><span class="problematic" id="id4">*</span></a>args, item)</p>
+<dd><p>Evaluate whether any item satisfies <cite>predicate(*args, item)</cite></p>
 </dd></dl>
 
 <dl class="py function">
@@ -465,7 +462,7 @@ If ‘always’, then include left-hand side delimiters.</p>
 <li class="toctree-l1"><a class="reference internal" href="../README.html">README</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../SHELL.html">Implementation</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Library Reference:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Reference:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../reference.html">Library Reference</a></li>
 </ul>
@@ -474,6 +471,7 @@ If ‘always’, then include left-hand side delimiters.</p>
 <li class="toctree-l1"><a class="reference internal" href="filesystem.html">filesystem</a></li>
 <li class="toctree-l1"><a class="reference internal" href="object_parser.html">object parser</a></li>
 <li class="toctree-l1"><a class="reference internal" href="shell.html">shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="server.html">server</a></li>
 </ul>
 
           <div role="search">
@@ -495,8 +493,6 @@ If ‘always’, then include left-hand side delimiters.</p>
           <div role="navigation" aria-label="related navigaton">
             <a href="subshell.html" title="subshell module"
               >previous</a> |
-            <a href="verify_server.html" title="verify_server module"
-              >next</a> |
             <a href="../py-modindex.html" title="Python Module Index"
               >modules</a> |
             <a href="../genindex.html" title="General Index"

@@ -54,6 +54,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="README.html">README</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SHELL.html">Implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SHELL_REFERENCE.html">Reference</a></li>
 </ul>
 </div>
 </section>
@@ -73,6 +74,7 @@
 <li class="toctree-l1"><a class="reference internal" href="modules/filesystem.html">filesystem</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules/object_parser.html">object parser</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules/shell.html">shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/server.html">server</a></li>
 </ul>
 </div>
 </section>
@@ -150,10 +152,10 @@ This can be used to e.g. browse REST APIs.</p>
 <dd><p>Copy references.</p>
 <section id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">`sh</span>
-<span class="pre">cp(a,</span> <span class="pre">b)</span> <span class="pre">#</span> <span class="pre">Let</span> <span class="pre">b</span> <span class="pre">point</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">value</span> <span class="pre">referenced</span> <span class="pre">by</span> <span class="pre">a.</span>
-<span class="pre">cp(*a,</span> <span class="pre">b)</span> <span class="pre">#</span> <span class="pre">let</span> <span class="pre">b</span> <span class="pre">contain</span> <span class="pre">the</span> <span class="pre">pointers</span> <span class="pre">*a.</span>
-<span class="pre">`</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cp</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="c1"># Let b point to the value referenced by a.</span>
+<span class="n">cp</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="c1"># let b contain the pointers *a.</span>
+</pre></div>
+</div>
 </section>
 </dd></dl>
 
@@ -195,10 +197,10 @@ Objects that start with HIDE_PREFIX are ignored.</p>
 <dd><p>Move references.</p>
 <section id="id1">
 <h2>Usage<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">`sh</span>
-<span class="pre">mv(a,</span> <span class="pre">b)</span> <span class="pre">#</span> <span class="pre">rename</span> <span class="pre">the</span> <span class="pre">reference</span> <span class="pre">a</span> <span class="pre">to</span> <span class="pre">b.</span>
-<span class="pre">mv(*a,</span> <span class="pre">b)</span> <span class="pre">#</span> <span class="pre">move</span> <span class="pre">references</span> <span class="pre">*a</span> <span class="pre">to</span> <span class="pre">b</span>
-<span class="pre">`</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mv</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="c1"># rename the reference a to b.</span>
+<span class="n">mv</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="c1"># move references *a to b</span>
+</pre></div>
+</div>
 </section>
 </dd></dl>
 
@@ -316,27 +318,17 @@ It that can be converted to JSON or YAML and viewed in:
 <span class="sig-name descname"><span class="pre">extend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><span class="pre">object</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mash.object_parser.OAS.extend" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate OAS/Swagger components from a class
 See: [OAS](<a class="reference external" href="https://swagger.io/specification/">https://swagger.io/specification/</a>)
-E.g.
-<a href="#id2"><span class="problematic" id="id3">``</span></a><a href="#id4"><span class="problematic" id="id5">`</span></a>yml
-components:</p>
-<blockquote>
-<div><dl class="simple">
-<dt>schemas:</dt><dd><dl class="simple">
-<dt>User:</dt><dd><dl class="simple">
-<dt>properties:</dt><dd><dl class="simple">
-<dt>id:</dt><dd><p>type: integer</p>
-</dd>
-<dt>name:</dt><dd><p>type: string</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd>
-</dl>
-</div></blockquote>
-<p><a href="#id6"><span class="problematic" id="id7">``</span></a><a href="#id8"><span class="problematic" id="id9">`</span></a></p>
+E.g.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">components</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">schemas</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">User</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">properties</span><span class="p">:</span>
+<span class="w">                </span><span class="nt">id</span><span class="p">:</span>
+<span class="w">                    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">integer</span>
+<span class="w">                </span><span class="nt">name</span><span class="p">:</span>
+<span class="w">                    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </dd></dl>
@@ -461,8 +453,10 @@ Return all variables if no key is given.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="mash.shell.base.BaseShell.do_unset">
 <span class="sig-name descname"><span class="pre">do_unset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mash.shell.base.BaseShell.do_unset" title="Permalink to this definition">¶</a></dt>
-<dd><p>Unset keys
-<a href="#id10"><span class="problematic" id="id11">`</span></a>unset [KEY [KEY..]]</p>
+<dd><p>Unset keys</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">unset</span><span class="w"> </span><span class="o">[</span>KEY<span class="w"> </span><span class="o">[</span>KEY..<span class="o">]]</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -545,6 +539,7 @@ Use a key to select a group of functions</p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="README.html">README</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SHELL.html">Implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SHELL_REFERENCE.html">Reference</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference:</span></p>
 <ul>
@@ -555,6 +550,7 @@ Use a key to select a group of functions</p>
 <li class="toctree-l1"><a class="reference internal" href="modules/filesystem.html">filesystem</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules/object_parser.html">object parser</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules/shell.html">shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/server.html">server</a></li>
 </ul>
 
           <div role="search">

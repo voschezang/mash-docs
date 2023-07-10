@@ -15,14 +15,14 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="shell.ast package" href="shell.ast.html" />
-    <link rel="prev" title="server module" href="server.html" /> 
+    <link rel="prev" title="server package" href="server.html" /> 
   </head><body>
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
           href="../index.html">Mash  documentation</a></div>
         <div class="rel" role="navigation" aria-label="related navigation">
-          <a href="server.html" title="server module"
+          <a href="server.html" title="server package"
              accesskey="P">previous</a> |
           <a href="shell.ast.html" title="shell.ast package"
              accesskey="N">next</a> |
@@ -276,8 +276,10 @@ Return all variables if no key is given.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="shell.base.BaseShell.do_unset">
 <span class="sig-name descname"><span class="pre">do_unset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#shell.base.BaseShell.do_unset" title="Permalink to this definition">¶</a></dt>
-<dd><p>Unset keys
-<a href="#id1"><span class="problematic" id="id2">`</span></a>unset [KEY [KEY..]]</p>
+<dd><p>Unset keys</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">unset</span><span class="w"> </span><span class="o">[</span>KEY<span class="w"> </span><span class="o">[</span>KEY..<span class="o">]]</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -647,7 +649,7 @@ Returns 0 on success and None otherwise</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="shell.shell.Shell">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">shell.shell.</span></span><span class="sig-name descname"><span class="pre">Shell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env:</span> <span class="pre">~typing.Dict[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">~typing.Any]</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_model=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_session_prehook=&lt;function</span> <span class="pre">identity&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_session_posthook=&lt;function</span> <span class="pre">identity&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#shell.shell.Shell" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseShell</span></code></p>
+<dd><p>Bases: <a class="reference internal" href="../index.html#mash.shell.base.BaseShell" title="mash.shell.base.BaseShell"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseShell</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="shell.shell.Shell.do_map">
 <span class="sig-name descname"><span class="pre">do_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#shell.shell.Shell.do_map" title="Permalink to this definition">¶</a></dt>
@@ -734,8 +736,8 @@ Note that <cite>set_functions</cite> must be called before instantiating Shell.<
 <dt class="sig sig-object py" id="shell.shell.run_command">
 <span class="sig-prename descclassname"><span class="pre">shell.shell.</span></span><span class="sig-name descname"><span class="pre">run_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shell</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#shell.shell.Shell" title="shell.shell.Shell"><span class="pre">Shell</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#shell.shell.run_command" title="Permalink to this definition">¶</a></dt>
 <dd><p>Run a newline-separated string of commands.</p>
-<section id="id3">
-<h3>Parameters<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
+<section id="id1">
+<h3>Parameters<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
 <blockquote>
 <div><dl class="simple">
 <dt>strict<span class="classifier">bool</span></dt><dd><p>Raise exceptions when encountering invalid syntax.</p>
@@ -883,15 +885,16 @@ Stay in the current directory by default.</p>
 <li class="toctree-l1"><a class="reference internal" href="../README.html">README</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../SHELL.html">Implementation</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Library Reference:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../reference.html">Library Reference</a></li>
+<p class="caption" role="heading"><span class="caption-text">Reference:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../reference.html">Library Reference</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Packages:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="filesystem.html">filesystem</a></li>
 <li class="toctree-l1"><a class="reference internal" href="object_parser.html">object parser</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="server.html">server</a></li>
 </ul>
 
           <div role="search">
@@ -911,7 +914,7 @@ Stay in the current directory by default.</p>
       <div class="footer">
         <div class="left">
           <div role="navigation" aria-label="related navigaton">
-            <a href="server.html" title="server module"
+            <a href="server.html" title="server package"
               >previous</a> |
             <a href="shell.ast.html" title="shell.ast package"
               >next</a> |
