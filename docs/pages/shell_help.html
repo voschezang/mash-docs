@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Math &#8212; Mash  documentation</title>
+    <title>Shell &#8212; Mash  documentation</title>
     <link rel="stylesheet" type="text/css" href="../static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../static/agogo.css" />
     <link rel="stylesheet" type="text/css" href="../static/custom.css" />
@@ -14,17 +14,17 @@
     <script src="../static/sphinx_highlight.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Shell" href="shell_help.html" />
-    <link rel="prev" title="Language Reference" href="SHELL_REFERENCE.html" /> 
+    <link rel="next" title="Library Reference" href="reference.html" />
+    <link rel="prev" title="Math" href="lib.html" /> 
   </head><body>
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
           href="../index.html">Mash  documentation</a></div>
         <div class="rel" role="navigation" aria-label="related navigation">
-          <a href="SHELL_REFERENCE.html" title="Language Reference"
+          <a href="lib.html" title="Math"
              accesskey="P">previous</a> |
-          <a href="shell_help.html" title="Shell"
+          <a href="reference.html" title="Library Reference"
              accesskey="N">next</a> |
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |
@@ -42,38 +42,69 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="math">
-<span id="lib-math"></span><h1>Math<a class="headerlink" href="#math" title="Permalink to this heading">¶</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#!/usr/bin/python -m mash
+  <section id="shell">
+<span id="shell-h"></span><h1>Shell<a class="headerlink" href="#shell" title="Permalink to this heading">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>usage: shell_example.py [-h] [-v] [-s] [-f FILE] [-r] [--session SESSION]
+                        [cmd ...]
 
-# constants
-pi &lt;- float 3.141592653589793
+If no positional arguments are given then an interactive subshell is started.
 
-# unary operators
-abs (x):
-    if $x &gt;= 0 then
-        return $x
-    else
-        return math - $x
+positional arguments:
+  cmd                   A comma- or newline-separated list of commands
 
+options:
+  -h, --help            show this help message and exit
+  -v, --verbose
+  -s, --safe            Safe-mode. Ask for confirmation before executing commands.
+  -f FILE, --file FILE  Read and run FILE as a command
+  -r, --reload          Reload last session
+  --session SESSION     Use SESSION
 
-fac (n):
-    if $n &lt; 0 then fail
+Default Commands
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    if $n == 0 then 
-        return 1
+Run shell commands by prefixing them with `!`.
+E.g.
+    ./shell.py !echo abc; echo def # Bash
 
-    return range $n |&gt; product
+Run multiple Python commands by separating each command with colons or newlines.
+E.g.
+    ./shell.py &#39;print abc; print def 
+ print ghi&#39;
 
+Variables
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-# binary operators
-add (a b): math a + b
-sub (a b): math a - b
-mul (a b): math a * b
+Assign constants or evaluate expressiosn:
+```
+    a = 100
+    b &lt;- print $a
+    echo $a $b
+```
 
-# reduction
-sum (x): echo $x |&gt; reduce add 0
-product (x): echo $x |&gt; reduce mul 1
+Interopability
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Interopability with Bash can be done with pipes:
+    `|&gt;` for Python.
+    `|`  for Bash
+    `&gt;-`  for Bash (write to file)
+    `&gt;&gt;`  for Bash (append to file)
+
+1. To stdin and stdout
+E.g.
+```
+    echo abc | ./shell.py print
+    ./shell.py print abc | echo
+```
+
+2. Within the dsl
+E.g.
+```
+    ./shell.py print abc # Python
+    ./shell.py &#39;print abc | echo&#39;
+    ./shell.py &#39;print abc |&gt; print&#39;
+```
 </pre></div>
 </div>
 </section>
@@ -92,8 +123,8 @@ product (x): echo $x |&gt; reduce mul 1
 <li class="toctree-l1"><a class="reference internal" href="README.html">README</a></li>
 <li class="toctree-l1"><a class="reference internal" href="shell.html">Implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SHELL_REFERENCE.html">Reference</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Example Mash script</a></li>
-<li class="toctree-l1"><a class="reference internal" href="shell_help.html">Shell CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.html">Example Mash script</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Shell CLI</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference:</span></p>
 <ul>
@@ -125,9 +156,9 @@ product (x): echo $x |&gt; reduce mul 1
       <div class="footer">
         <div class="left">
           <div role="navigation" aria-label="related navigaton">
-            <a href="SHELL_REFERENCE.html" title="Language Reference"
+            <a href="lib.html" title="Math"
               >previous</a> |
-            <a href="shell_help.html" title="Shell"
+            <a href="reference.html" title="Library Reference"
               >next</a> |
             <a href="../py-modindex.html" title="Python Module Index"
               >modules</a> |
@@ -136,7 +167,7 @@ product (x): echo $x |&gt; reduce mul 1
           </div>
           <div role="note" aria-label="source link">
               <br/>
-              <a href="../_sources/pages/lib.rst.txt"
+              <a href="../_sources/pages/shell_help.rst.txt"
                 rel="nofollow">Show Source</a>
           </div>
         </div>

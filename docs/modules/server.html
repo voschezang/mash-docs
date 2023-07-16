@@ -149,10 +149,20 @@
 <section id="module-server.server">
 <span id="server-server-module"></span><h2>server.server module<a class="headerlink" href="#module-server.server" title="Permalink to this heading">¶</a></h2>
 <p>A dummy web server.</p>
-<p>API endpoints
-- /verify server
-- /users
-- /documents</p>
+<p>API endpoints</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/verify server</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/users</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/documents</span>
+</pre></div>
+</div>
+<p>The internal structure is decoupled.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">domain</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Domain model</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">- user.py</span><span class="w"> </span><span class="c1"># A domain object</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">routes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Exposed API methods</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">- users.py</span><span class="w"> </span><span class="c1"># User-related routing</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">repository.py</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Persistency layer</span>
+</pre></div>
+</div>
 <dl class="py function">
 <dt class="sig sig-object py" id="server.server.init">
 <span class="sig-prename descclassname"><span class="pre">server.server.</span></span><span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/server/server.html#init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#server.server.init" title="Permalink to this definition">¶</a></dt>
@@ -181,9 +191,10 @@
           <p class="caption" role="heading"><span class="caption-text">Usage:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../pages/README.html">README</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pages/SHELL.html">Implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/shell.html">Implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pages/SHELL_REFERENCE.html">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pages/lib.html">Example Mash script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/shell_help.html">Shell CLI</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference:</span></p>
 <ul class="current">
