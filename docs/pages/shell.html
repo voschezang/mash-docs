@@ -48,6 +48,12 @@
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Shell</span></code> class is based on <code class="docutils literal notranslate"><span class="pre">cmd.Cmd</span></code>. It extends it with a custom grammer, user-definable variables, functions, pipes and more.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Cmd2</span></code> extends <a class="reference external" href="https://docs.python.org/3.11/library/cmd.html"><code class="docutils literal notranslate"><span class="pre">cmd.Cmd</span></code></a> with a few basic methods. This can be used as an example as how to write a custom subclass for <code class="docutils literal notranslate"><span class="pre">Cmd</span></code> or <code class="docutils literal notranslate"><span class="pre">Shell</span></code>.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cmd.Cmd<span class="w"> </span><span class="c1"># Python&#39;s builtin framework for CLI tools</span>
+└──<span class="w"> </span>Cmd2<span class="w"> </span><span class="c1"># Add error handling and I/O methods</span>
+<span class="w">    </span>└──<span class="w"> </span>BaseShell<span class="w"> </span><span class="c1"># Support environment variables and sessions</span>
+<span class="w">        </span>└──<span class="w"> </span>Shell<span class="w"> </span><span class="c1"># Use a language model: shell.ast</span>
+</pre></div>
+</div>
 <p>The main datastructure is <code class="docutils literal notranslate"><span class="pre">mash.filesystem</span></code>. It’s inferface is inspired by unix filesystems. It is used to:</p>
 <ul class="simple">
 <li><p>Implement local/global variable scopes in <code class="docutils literal notranslate"><span class="pre">Shell</span></code>.</p></li>
@@ -58,6 +64,7 @@
 </ul>
 </li>
 </ul>
+<p>The class discoverable</p>
 <section id="module-tree">
 <h3>Module Tree<a class="headerlink" href="#module-tree" title="Permalink to this heading">¶</a></h3>
 <p>In <a class="reference external" href="https://github.com/voschezang/mash/tree/main/src">src</a>.</p>
@@ -120,7 +127,7 @@
 <span class="k">class</span> <span class="nc">Shell</span><span class="p">(</span><span class="n">Cmd2</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Shell.</span>
 <span class="sd">    Support multiline statements, pipes, conditions, variables and inline function definitions.</span>
-<span class="sd">    Use a BNF-based grammer in `lex_parser.py` to construct an AST.</span>
+<span class="sd">    Use a BNF-based grammer in `parser.py` to construct an AST.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <span class="k">class</span> <span class="nc">BaseShell</span><span class="p">(</span><span class="n">Cmd2</span><span class="p">):</span>

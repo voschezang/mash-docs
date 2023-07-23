@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>AST &#8212; Mash  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../static/agogo.css" />
+    <link rel="stylesheet" type="text/css" href="../static/custom.css" />
+    <script data-url_root="../" id="documentation_options" src="../static/documentation_options.js"></script>
+    <script src="../static/doctools.js"></script>
+    <script src="../static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Library Reference" href="reference.html" />
+    <link rel="prev" title="Shell" href="shell_help.html" /> 
+  </head><body>
+    <div class="header-wrapper" role="banner">
+      <div class="header">
+        <div class="headertitle"><a
+          href="../index.html">Mash  documentation</a></div>
+        <div class="rel" role="navigation" aria-label="related navigation">
+          <a href="shell_help.html" title="Shell"
+             accesskey="P">previous</a> |
+          <a href="reference.html" title="Library Reference"
+             accesskey="N">next</a> |
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="ast">
+<span id="ast-reference"></span><h1>AST<a class="headerlink" href="#ast" title="Permalink to this heading">¶</a></h1>
+<p>An <a class="reference external" href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">Abstract Syntax Tree</a>.</p>
+<section id="module-mash.shell.ast.nodes">
+<span id="core-classes"></span><h2>Core classes<a class="headerlink" href="#module-mash.shell.ast.nodes" title="Permalink to this heading">¶</a></h2>
+<section id="nodes">
+<h3>Nodes<a class="headerlink" href="#nodes" title="Permalink to this heading">¶</a></h3>
+<p>A container class for <cite>Node</cite>’s.
+See <a class="reference external" href="https://voschezang.github.io/mash-docs/modules/shell.grammer.html#module-shell.grammer.parser">shell.grammer.parser</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tree</span>
+Lines
+└──<span class="w"> </span>Nodes
+<span class="w">    </span>└──<span class="w"> </span>Node
+</pre></div>
+</div>
+</section>
+<section id="node">
+<h3>Node<a class="headerlink" href="#node" title="Permalink to this heading">¶</a></h3>
+<p>An “edge” of the AST.</p>
+<p>Subclasses of <cite>Node</cite>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Node
+├──<span class="w"> </span>Condition
+│<span class="w">   </span>├──<span class="w"> </span>ElseCondition
+│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>Else
+│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>ElseIf
+│<span class="w">   </span>├──<span class="w"> </span>If
+│<span class="w">   </span>├──<span class="w"> </span>IfThen
+│<span class="w">   </span>├──<span class="w"> </span>IfThenElse
+│<span class="w">   </span>└──<span class="w"> </span>Then
+├──<span class="w"> </span>Infix
+│<span class="w">   </span>├──<span class="w"> </span>Assign
+│<span class="w">   </span>├──<span class="w"> </span>BashPipe
+│<span class="w">   </span>├──<span class="w"> </span>BinaryExpression
+│<span class="w">   </span>├──<span class="w"> </span>LogicExpression
+│<span class="w">   </span>├──<span class="w"> </span>Map
+│<span class="w">   </span>└──<span class="w"> </span>Pipe
+└──<span class="w"> </span>Term
+<span class="w">    </span>├──<span class="w"> </span>Method
+<span class="w">    </span>├──<span class="w"> </span>Quoted
+<span class="w">    </span>├──<span class="w"> </span>Variable
+<span class="w">    </span>└──<span class="w"> </span>Word<span class="w">        </span>
+</pre></div>
+</div>
+</section>
+<span class="target" id="module-mash.shell.ast.node"></span><span class="target" id="module-mash.shell.ast.term"></span><section id="term">
+<h3>Term<a class="headerlink" href="#term" title="Permalink to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Classes</span>
+Term
+├──<span class="w"> </span>Method<span class="w"> </span><span class="c1"># f()</span>
+├──<span class="w"> </span>Quoted<span class="w"> </span><span class="c1"># &quot;abc&quot;</span>
+├──<span class="w"> </span>Variable<span class="w"> </span><span class="nv">$x</span>
+└──<span class="w"> </span>Word
+</pre></div>
+</div>
+</section>
+<span class="target" id="module-mash.shell.ast.conditions"></span><section id="conditions">
+<h3>Conditions<a class="headerlink" href="#conditions" title="Permalink to this heading">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Classes</span>
+Condition
+├──<span class="w"> </span>ElseCondition
+│<span class="w">   </span>├──<span class="w"> </span>Else
+│<span class="w">   </span>└──<span class="w"> </span>ElseIf
+├──<span class="w"> </span>If
+├──<span class="w"> </span>IfThen
+├──<span class="w"> </span>IfThenElse
+└──<span class="w"> </span>Then
+</pre></div>
+</div>
+<p>Example code:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># An inline if-then clause</span>
+<span class="k">if</span><span class="w"> </span><span class="nv">$a</span><span class="w"> </span>&gt;<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="k">then</span><span class="w"> </span>print<span class="w"> </span>high
+<span class="k">if</span><span class="w"> </span><span class="nv">$a</span><span class="w"> </span>&gt;<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="k">then</span><span class="w"> </span>print<span class="w"> </span>high<span class="w"> </span><span class="k">else</span><span class="w"> </span>print<span class="w"> </span>low
+
+<span class="c1"># A multi-line if-then-else clause</span>
+<span class="nv">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span>
+<span class="k">if</span><span class="w"> </span><span class="nv">$a</span><span class="w"> </span>&gt;<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span>print<span class="w"> </span>large
+<span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nv">$a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">10</span>
+<span class="w">    </span>print<span class="w"> </span>medium
+<span class="k">else</span>
+<span class="w">    </span>print<span class="w"> </span>small
+</pre></div>
+</div>
+</section>
+</section>
+<section id="module-mash.shell.ast.function_definition">
+<span id="additional-classes"></span><h2>Additional classes<a class="headerlink" href="#module-mash.shell.ast.function_definition" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="mash.shell.ast.function_definition.FunctionDefinition">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mash.shell.ast.function_definition.</span></span><span class="sig-name descname"><span class="pre">FunctionDefinition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">body</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mash/shell/ast/function_definition.html#FunctionDefinition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mash.shell.ast.function_definition.FunctionDefinition" title="Permalink to this definition">¶</a></dt>
+<dd><p>A user-defined function.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>f<span class="w"> </span><span class="o">(</span>x<span class="o">)</span>:
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nv">$x</span>
+
+<span class="c1"># e.g.</span>
+f<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="c1"># yield 2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mash.shell.ast.function_definition.InlineFunctionDefinition">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mash.shell.ast.function_definition.</span></span><span class="sig-name descname"><span class="pre">InlineFunctionDefinition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">body</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mash/shell/ast/function_definition.html#InlineFunctionDefinition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mash.shell.ast.function_definition.InlineFunctionDefinition" title="Permalink to this definition">¶</a></dt>
+<dd><p>A user-defined inline (oneline) function.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>f<span class="w"> </span><span class="o">(</span>x<span class="o">)</span>:<span class="w"> </span><span class="nv">$x</span>
+
+<span class="c1"># e.g.</span>
+f<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="c1"># yield 2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<span class="target" id="module-mash.shell.ast.infix"></span><dl class="py class">
+<dt class="sig sig-object py" id="mash.shell.ast.infix.Assign">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mash.shell.ast.infix.</span></span><span class="sig-name descname"><span class="pre">Assign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mash/shell/ast/infix.html#Assign"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mash.shell.ast.infix.Assign" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assign a value to a variable.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># static assignment</span>
+<span class="nv">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span>
+
+<span class="c1"># left- and right-hand evaluation</span>
+b<span class="w"> </span>&lt;-<span class="w"> </span>range<span class="w"> </span><span class="m">10</span>
+range<span class="w"> </span><span class="m">10</span><span class="w"> </span>-&gt;<span class="w"> </span>c
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mash.shell.ast.infix.BashPipe">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mash.shell.ast.infix.</span></span><span class="sig-name descname"><span class="pre">BashPipe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mash/shell/ast/infix.html#BashPipe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mash.shell.ast.infix.BashPipe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pipe</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span>abcde<span class="w"> </span><span class="p">|</span><span class="w"> </span>egrep<span class="w"> </span>-o<span class="w"> </span><span class="s1">&#39;a??&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mash.shell.ast.infix.BinaryExpression">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mash.shell.ast.infix.</span></span><span class="sig-name descname"><span class="pre">BinaryExpression</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mash/shell/ast/infix.html#BinaryExpression"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mash.shell.ast.infix.BinaryExpression" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mash.shell.ast.infix.Infix">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mash.shell.ast.infix.</span></span><span class="sig-name descname"><span class="pre">Infix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mash/shell/ast/infix.html#Infix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mash.shell.ast.infix.Infix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mash.shell.ast.infix.LogicExpression">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mash.shell.ast.infix.</span></span><span class="sig-name descname"><span class="pre">LogicExpression</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mash/shell/ast/infix.html#LogicExpression"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mash.shell.ast.infix.LogicExpression" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mash.shell.ast.infix.Map">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mash.shell.ast.infix.</span></span><span class="sig-name descname"><span class="pre">Map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mash/shell/ast/infix.html#Map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mash.shell.ast.infix.Map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply a function to each element of a sequence.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>range<span class="w"> </span><span class="m">10</span><span class="w"> </span>&gt;&gt;<span class="o">=</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span>The<span class="w"> </span>value<span class="w"> </span>is<span class="w"> </span>$<span class="w"> </span>.
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="mash.shell.ast.infix.Map.map">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">shell</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'\n'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterable" title="(in Python v3.11)"><span class="pre">Iterable</span></a></span></span><a class="reference internal" href="../_modules/mash/shell/ast/infix.html#Map.map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mash.shell.ast.infix.Map.map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply a function to every line.
+If <cite>$</cite> is present, then each line from stdin is inserted there.
+Otherwise each line is appended.</p>
+<section id="usage">
+<h3>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>println<span class="w"> </span>a<span class="w"> </span>b<span class="w"> </span><span class="p">|</span>&gt;<span class="w"> </span>map<span class="w"> </span><span class="nb">echo</span>
+println<span class="w"> </span>a<span class="w"> </span>b<span class="w"> </span><span class="p">|</span>&gt;<span class="w"> </span>map<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>prefix<span class="w"> </span>$<span class="w"> </span>suffix
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mash.shell.ast.infix.Pipe">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mash.shell.ast.infix.</span></span><span class="sig-name descname"><span class="pre">Pipe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mash/shell/ast/infix.html#Pipe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mash.shell.ast.infix.Pipe" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>range<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="p">|</span>&gt;<span class="w"> </span>flatten
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          
+          <h3>Table of Contents</h3>
+          <p class="caption" role="heading"><span class="caption-text">Usage:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="README.html">README</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell.html">Implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SHELL_REFERENCE.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.html">Example Mash script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell_help.html">Shell CLI</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Shell AST</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Library Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Packages:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules/filesystem.html">filesystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/object_parser.html">object parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/shell.html">shell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/server.html">server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/webtools.html">webtools</a></li>
+</ul>
+
+          <div role="search">
+            <h3 style="margin-top: 1.5em;">Search</h3>
+            <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" />
+                <input type="submit" value="Go" />
+            </form>
+          </div>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <div role="navigation" aria-label="related navigaton">
+            <a href="shell_help.html" title="Shell"
+              >previous</a> |
+            <a href="reference.html" title="Library Reference"
+              >next</a> |
+            <a href="../py-modindex.html" title="Python Module Index"
+              >modules</a> |
+            <a href="../genindex.html" title="General Index"
+              >index</a>
+          </div>
+          <div role="note" aria-label="source link">
+              <br/>
+              <a href="../_sources/pages/ast.rst.txt"
+                rel="nofollow">Show Source</a>
+          </div>
+        </div>
+
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, Voschezang.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

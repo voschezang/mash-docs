@@ -50,8 +50,8 @@
 <div class="line">Mash language usage:</div>
 </div>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/voschezang/mash/blob/main/SHELL_REFERENCE.md">- Reference</a></p></li>
-<li><p><a class="reference external" href="pages/lib.html">- Example script</a></p></li>
+<li><p><a class="reference external" href="https://github.com/voschezang/mash/blob/main/SHELL_REFERENCE.md">• Reference</a></p></li>
+<li><p><a class="reference external" href="pages/lib.html">• Example script</a></p></li>
 </ul>
 </aside>
 <div class="toctree-wrapper compound">
@@ -62,6 +62,7 @@
 <li class="toctree-l1"><a class="reference internal" href="pages/SHELL_REFERENCE.html">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pages/lib.html">Example Mash script</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pages/shell_help.html">Shell CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/ast.html">Shell AST</a></li>
 </ul>
 </div>
 <section id="library-reference">
@@ -400,7 +401,12 @@ Stay in the current directory by default.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="mash.shell.Shell">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mash.shell.</span></span><span class="sig-name descname"><span class="pre">Shell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env:</span> <span class="pre">~typing.Dict[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">~typing.Any]</span> <span class="pre">|</span> <span class="pre">None</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_model=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_session_prehook=&lt;function</span> <span class="pre">identity&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_session_posthook=&lt;function</span> <span class="pre">identity&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mash/shell/shell.html#Shell"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mash.shell.Shell" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="py method">
+<dd><p>Extend <cite>BaseShell</cite> with a language model:
+Support multiline statements, pipes, conditions, variables and inline function definitions.</p>
+<p>The language grammer is based on a BNF-based grammer, which is defined in 
+<a class="reference external" href="https://voschezang.github.io/mash-docs/modules/shell.grammer.html#module-shell.grammer.parser">shell.grammer.parser</a>
+The language implementation is defined in shell.ast.</p>
+<dl class="py method">
 <dt class="sig sig-object py" id="mash.shell.Shell.do_map">
 <span class="sig-name descname"><span class="pre">do_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mash/shell/shell.html#Shell.do_map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mash.shell.Shell.do_map" title="Permalink to this definition">¶</a></dt>
 <dd><p>Apply a function to each item.
@@ -423,6 +429,20 @@ Otherwise each line is appended.</p>
 </section>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="mash.shell.Shell.onecmd_inner">
+<span class="sig-name descname"><span class="pre">onecmd_inner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lines</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mash/shell/shell.html#Shell.onecmd_inner"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mash.shell.Shell.onecmd_inner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override <cite>BaseShell.onecmd_inner</cite>.
+Apply a language model iff <cite>self.use_model</cite> is True.</p>
+<section id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">¶</a></h3>
+<dl class="simple">
+<dt>lines<span class="classifier">str</span></dt><dd><p>The input lines.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
@@ -434,13 +454,22 @@ This class is restricted to functionality that requires Cmd methods to be overrr
 <ul class="simple">
 <li><p>An environment with local and global variable scopes.</p></li>
 <li><p>Save/load sessions.</p></li>
-<li><p>Decotion with functions, both at runtime and compile time.</p></li>
+<li><p>Decoration with functions, both at runtime and compile time.</p></li>
 </ul>
 <dl class="py method">
 <dt class="sig sig-object py" id="mash.shell.base.BaseShell.add_functions">
 <span class="sig-name descname"><span class="pre">add_functions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">functions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.11)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ShellFunction</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mash/shell/base.html#BaseShell.add_functions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mash.shell.base.BaseShell.add_functions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add functions to this instance at runtime.
-Use a key to select a group of functions</p>
+Use a key to select a group of functions.</p>
+<section id="id5">
+<h3>Parameters<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h3>
+<dl class="simple">
+<dt>functions<span class="classifier">dict</span></dt><dd><p>A dictionary of functions to add.</p>
+</dd>
+<dt>group_key<span class="classifier">str</span></dt><dd><p>A key to select a group of functions.</p>
+</dd>
+</dl>
+</section>
 </dd></dl>
 
 <dl class="py method">
@@ -486,7 +515,7 @@ Return all variables if no key is given.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="mash.shell.base.BaseShell.is_hidden_function">
 <span class="sig-name descname"><span class="pre">is_hidden_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="_modules/mash/shell/base.html#BaseShell.is_hidden_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mash.shell.base.BaseShell.is_hidden_function" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check whether <cite>k</cite> is an existing function.</p>
+<dd><p>Check whether <cite>k</cite> is an existing hidden function.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -497,7 +526,7 @@ Return all variables if no key is given.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="mash.shell.base.BaseShell.is_special_function">
-<span class="sig-name descname"><span class="pre">is_special_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="_modules/mash/shell/base.html#BaseShell.is_special_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mash.shell.base.BaseShell.is_special_function" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">is_special_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">char</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span></span><a class="reference internal" href="_modules/mash/shell/base.html#BaseShell.is_special_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mash.shell.base.BaseShell.is_special_function" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check whether <cite>char</cite> is a special characters method</p>
 </dd></dl>
 
@@ -507,6 +536,21 @@ Return all variables if no key is given.</p>
 <dd><p>Find the method corresponding to the last command run in <cite>shell</cite>.
 It has the form: do_{cmd}</p>
 <p>Return a the last method if it exists and None otherwise.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mash.shell.base.BaseShell.load_session">
+<span class="sig-name descname"><span class="pre">load_session</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">strict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mash/shell/base.html#BaseShell.load_session"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mash.shell.base.BaseShell.load_session" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load a session.</p>
+<section id="arameters">
+<h3>arameters<a class="headerlink" href="#arameters" title="Permalink to this heading">¶</a></h3>
+<dl class="simple">
+<dt>session<span class="classifier">str</span></dt><dd><p>The session file to load.</p>
+</dd>
+<dt>strict<span class="classifier">bool</span></dt><dd><p>If True, raise an error if the session file is not found.</p>
+</dd>
+</dl>
+</section>
 </dd></dl>
 
 <dl class="py method">
@@ -520,6 +564,38 @@ It has the form: do_{cmd}</p>
 <span class="sig-name descname"><span class="pre">remove_functions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mash/shell/base.html#BaseShell.remove_functions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mash.shell.base.BaseShell.remove_functions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove functions to this instance at runtime.
 Use a key to select a group of functions</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mash.shell.base.BaseShell.reset_locals">
+<span class="sig-name descname"><span class="pre">reset_locals</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/mash/shell/base.html#BaseShell.reset_locals"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mash.shell.base.BaseShell.reset_locals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset enviornment variables and the current working directory.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mash.shell.base.BaseShell.run_hidden_function">
+<span class="sig-name descname"><span class="pre">run_hidden_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mash/shell/base.html#BaseShell.run_hidden_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mash.shell.base.BaseShell.run_hidden_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run a hidden function.
+See base.is_hidden_function</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mash.shell.base.BaseShell.save_session">
+<span class="sig-name descname"><span class="pre">save_session</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.shell_session.json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mash/shell/base.html#BaseShell.save_session"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mash.shell.base.BaseShell.save_session" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the current session to disk.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mash.shell.base.BaseShell.try_load_session">
+<span class="sig-name descname"><span class="pre">try_load_session</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.shell_session.json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mash/shell/base.html#BaseShell.try_load_session"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mash.shell.base.BaseShell.try_load_session" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to load a session. Ignore errors.</p>
+<section id="id6">
+<h3>Parameters<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h3>
+<dl class="simple">
+<dt>session<span class="classifier">str</span></dt><dd><p>The session file to load. If not given, use the default session.</p>
+</dd>
+</dl>
+</section>
 </dd></dl>
 
 </dd></dl>
@@ -561,6 +637,7 @@ Use a key to select a group of functions</p>
 <li class="toctree-l1"><a class="reference internal" href="pages/SHELL_REFERENCE.html">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pages/lib.html">Example Mash script</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pages/shell_help.html">Shell CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/ast.html">Shell AST</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference:</span></p>
 <ul>

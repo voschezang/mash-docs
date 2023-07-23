@@ -49,6 +49,35 @@
 </section>
 <section id="module-shell.ast.conditions">
 <span id="shell-ast-conditions-module"></span><h2>shell.ast.conditions module<a class="headerlink" href="#module-shell.ast.conditions" title="Permalink to this heading">¶</a></h2>
+<section id="conditions">
+<h3>Conditions<a class="headerlink" href="#conditions" title="Permalink to this heading">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Classes</span>
+Condition
+├──<span class="w"> </span>ElseCondition
+│<span class="w">   </span>├──<span class="w"> </span>Else
+│<span class="w">   </span>└──<span class="w"> </span>ElseIf
+├──<span class="w"> </span>If
+├──<span class="w"> </span>IfThen
+├──<span class="w"> </span>IfThenElse
+└──<span class="w"> </span>Then
+</pre></div>
+</div>
+<p>Example code:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># An inline if-then clause</span>
+<span class="k">if</span><span class="w"> </span><span class="nv">$a</span><span class="w"> </span>&gt;<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="k">then</span><span class="w"> </span>print<span class="w"> </span>high
+<span class="k">if</span><span class="w"> </span><span class="nv">$a</span><span class="w"> </span>&gt;<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="k">then</span><span class="w"> </span>print<span class="w"> </span>high<span class="w"> </span><span class="k">else</span><span class="w"> </span>print<span class="w"> </span>low
+
+<span class="c1"># A multi-line if-then-else clause</span>
+<span class="nv">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span>
+<span class="k">if</span><span class="w"> </span><span class="nv">$a</span><span class="w"> </span>&gt;<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span>print<span class="w"> </span>large
+<span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nv">$a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">10</span>
+<span class="w">    </span>print<span class="w"> </span>medium
+<span class="k">else</span>
+<span class="w">    </span>print<span class="w"> </span>small
+</pre></div>
+</div>
+</section>
 <dl class="py class">
 <dt class="sig sig-object py" id="shell.ast.conditions.Condition">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">shell.ast.conditions.</span></span><span class="sig-name descname"><span class="pre">Condition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">condition</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">then</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">otherwise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/shell/ast/conditions.html#Condition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell.ast.conditions.Condition" title="Permalink to this definition">¶</a></dt>
@@ -145,6 +174,14 @@
 <dt class="sig sig-object py" id="shell.ast.function_definition.FunctionDefinition">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">shell.ast.function_definition.</span></span><span class="sig-name descname"><span class="pre">FunctionDefinition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">body</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/shell/ast/function_definition.html#FunctionDefinition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell.ast.function_definition.FunctionDefinition" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Node</span></code></p>
+<p>A user-defined function.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>f<span class="w"> </span><span class="o">(</span>x<span class="o">)</span>:
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nv">$x</span>
+
+<span class="c1"># e.g.</span>
+f<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="c1"># yield 2</span>
+</pre></div>
+</div>
 <dl class="py property">
 <dt class="sig sig-object py" id="shell.ast.function_definition.FunctionDefinition.data">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></em><a class="headerlink" href="#shell.ast.function_definition.FunctionDefinition.data" title="Permalink to this definition">¶</a></dt>
@@ -166,6 +203,13 @@
 <dt class="sig sig-object py" id="shell.ast.function_definition.InlineFunctionDefinition">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">shell.ast.function_definition.</span></span><span class="sig-name descname"><span class="pre">InlineFunctionDefinition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">body</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/shell/ast/function_definition.html#InlineFunctionDefinition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell.ast.function_definition.InlineFunctionDefinition" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#shell.ast.function_definition.FunctionDefinition" title="shell.ast.function_definition.FunctionDefinition"><code class="xref py py-class docutils literal notranslate"><span class="pre">FunctionDefinition</span></code></a></p>
+<p>A user-defined inline (oneline) function.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>f<span class="w"> </span><span class="o">(</span>x<span class="o">)</span>:<span class="w"> </span><span class="nv">$x</span>
+
+<span class="c1"># e.g.</span>
+f<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="c1"># yield 2</span>
+</pre></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="shell.ast.function_definition.InlineFunctionDefinition.run">
 <span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prev_result</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shell</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../index.html#mash.shell.base.BaseShell" title="mash.shell.base.BaseShell"><span class="pre">BaseShell</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lazy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/shell/ast/function_definition.html#InlineFunctionDefinition.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell.ast.function_definition.InlineFunctionDefinition.run" title="Permalink to this definition">¶</a></dt>
@@ -180,6 +224,15 @@
 <dt class="sig sig-object py" id="shell.ast.infix.Assign">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">shell.ast.infix.</span></span><span class="sig-name descname"><span class="pre">Assign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/shell/ast/infix.html#Assign"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell.ast.infix.Assign" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#shell.ast.infix.Infix" title="shell.ast.infix.Infix"><code class="xref py py-class docutils literal notranslate"><span class="pre">Infix</span></code></a></p>
+<p>Assign a value to a variable.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># static assignment</span>
+<span class="nv">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span>
+
+<span class="c1"># left- and right-hand evaluation</span>
+b<span class="w"> </span>&lt;-<span class="w"> </span>range<span class="w"> </span><span class="m">10</span>
+range<span class="w"> </span><span class="m">10</span><span class="w"> </span>-&gt;<span class="w"> </span>c
+</pre></div>
+</div>
 <dl class="py property">
 <dt class="sig sig-object py" id="shell.ast.infix.Assign.key">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Node</span></em><a class="headerlink" href="#shell.ast.infix.Assign.key" title="Permalink to this definition">¶</a></dt>
@@ -201,6 +254,10 @@
 <dt class="sig sig-object py" id="shell.ast.infix.BashPipe">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">shell.ast.infix.</span></span><span class="sig-name descname"><span class="pre">BashPipe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/shell/ast/infix.html#BashPipe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell.ast.infix.BashPipe" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#shell.ast.infix.Infix" title="shell.ast.infix.Infix"><code class="xref py py-class docutils literal notranslate"><span class="pre">Infix</span></code></a></p>
+<p>Pipe</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span>abcde<span class="w"> </span><span class="p">|</span><span class="w"> </span>egrep<span class="w"> </span>-o<span class="w"> </span><span class="s1">&#39;a??&#39;</span>
+</pre></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="shell.ast.infix.BashPipe.run">
 <span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prev_result</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shell</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../index.html#mash.shell.base.BaseShell" title="mash.shell.base.BaseShell"><span class="pre">BaseShell</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lazy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/shell/ast/infix.html#BashPipe.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell.ast.infix.BashPipe.run" title="Permalink to this definition">¶</a></dt>
@@ -245,6 +302,10 @@
 <dt class="sig sig-object py" id="shell.ast.infix.Map">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">shell.ast.infix.</span></span><span class="sig-name descname"><span class="pre">Map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/shell/ast/infix.html#Map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell.ast.infix.Map" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#shell.ast.infix.Infix" title="shell.ast.infix.Infix"><code class="xref py py-class docutils literal notranslate"><span class="pre">Infix</span></code></a></p>
+<p>Apply a function to each element of a sequence.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>range<span class="w"> </span><span class="m">10</span><span class="w"> </span>&gt;&gt;<span class="o">=</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span>The<span class="w"> </span>value<span class="w"> </span>is<span class="w"> </span>$<span class="w"> </span>.
+</pre></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="shell.ast.infix.Map.map">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">shell</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'\n'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterable" title="(in Python v3.11)"><span class="pre">Iterable</span></a></span></span><a class="reference internal" href="../_modules/shell/ast/infix.html#Map.map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell.ast.infix.Map.map" title="Permalink to this definition">¶</a></dt>
@@ -271,6 +332,9 @@ println<span class="w"> </span>a<span class="w"> </span>b<span class="w"> </span
 <dt class="sig sig-object py" id="shell.ast.infix.Pipe">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">shell.ast.infix.</span></span><span class="sig-name descname"><span class="pre">Pipe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/shell/ast/infix.html#Pipe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell.ast.infix.Pipe" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#shell.ast.infix.Infix" title="shell.ast.infix.Infix"><code class="xref py py-class docutils literal notranslate"><span class="pre">Infix</span></code></a></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>range<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="p">|</span>&gt;<span class="w"> </span>flatten
+</pre></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="shell.ast.infix.Pipe.run">
 <span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prev_result</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shell</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../index.html#mash.shell.base.BaseShell" title="mash.shell.base.BaseShell"><span class="pre">BaseShell</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lazy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/shell/ast/infix.html#Pipe.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell.ast.infix.Pipe.run" title="Permalink to this definition">¶</a></dt>
@@ -317,15 +381,7 @@ println<span class="w"> </span>a<span class="w"> </span>b<span class="w"> </span
 <dt class="sig sig-object py" id="shell.ast.node.Node">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">shell.ast.node.</span></span><span class="sig-name descname"><span class="pre">Node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/shell/ast/node.html#Node"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell.ast.node.Node" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.UserString" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserString</span></code></a></p>
-<p>A node of an abstract syntax tree (AST).</p>
-<section id="properties">
-<h3>Properties<a class="headerlink" href="#properties" title="Permalink to this heading">¶</a></h3>
-<dl class="simple">
-<dt>data<span class="classifier">Node or str</span></dt><dd><p>The core data</p>
-</dd>
-<dt>values<span class="classifier">list</span></dt><dd><p>An iterable version of the core data</p>
-</dd>
-</dl>
+<p>A node (edge) of an abstract syntax tree (AST).</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="shell.ast.node.Node.run">
 <span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prev_result</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shell</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../index.html#mash.shell.base.BaseShell" title="mash.shell.base.BaseShell"><span class="pre">BaseShell</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lazy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/shell/ast/node.html#Node.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell.ast.node.Node.run" title="Permalink to this definition">¶</a></dt>
@@ -336,7 +392,6 @@ println<span class="w"> </span>a<span class="w"> </span>b<span class="w"> </span
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">values</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#shell.ast.node.Node.values" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-</section>
 </dd></dl>
 
 <dl class="py class">
@@ -364,8 +419,45 @@ println<span class="w"> </span>a<span class="w"> </span>b<span class="w"> </span
 </section>
 <section id="module-shell.ast.nodes">
 <span id="shell-ast-nodes-module"></span><h2>shell.ast.nodes module<a class="headerlink" href="#module-shell.ast.nodes" title="Permalink to this heading">¶</a></h2>
-<p>Containers
-Nodes that contain multiple nodes.</p>
+<section id="nodes">
+<h3>Nodes<a class="headerlink" href="#nodes" title="Permalink to this heading">¶</a></h3>
+<p>A container class for <cite>Node</cite>’s.
+See <a class="reference external" href="https://voschezang.github.io/mash-docs/modules/shell.grammer.html#module-shell.grammer.parser">shell.grammer.parser</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tree</span>
+Lines
+└──<span class="w"> </span>Nodes
+<span class="w">    </span>└──<span class="w"> </span>Node
+</pre></div>
+</div>
+</section>
+<section id="node">
+<h3>Node<a class="headerlink" href="#node" title="Permalink to this heading">¶</a></h3>
+<p>An “edge” of the AST.</p>
+<p>Subclasses of <cite>Node</cite>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Node
+├──<span class="w"> </span>Condition
+│<span class="w">   </span>├──<span class="w"> </span>ElseCondition
+│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>Else
+│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>ElseIf
+│<span class="w">   </span>├──<span class="w"> </span>If
+│<span class="w">   </span>├──<span class="w"> </span>IfThen
+│<span class="w">   </span>├──<span class="w"> </span>IfThenElse
+│<span class="w">   </span>└──<span class="w"> </span>Then
+├──<span class="w"> </span>Infix
+│<span class="w">   </span>├──<span class="w"> </span>Assign
+│<span class="w">   </span>├──<span class="w"> </span>BashPipe
+│<span class="w">   </span>├──<span class="w"> </span>BinaryExpression
+│<span class="w">   </span>├──<span class="w"> </span>LogicExpression
+│<span class="w">   </span>├──<span class="w"> </span>Map
+│<span class="w">   </span>└──<span class="w"> </span>Pipe
+└──<span class="w"> </span>Term
+<span class="w">    </span>├──<span class="w"> </span>Method
+<span class="w">    </span>├──<span class="w"> </span>Quoted
+<span class="w">    </span>├──<span class="w"> </span>Variable
+<span class="w">    </span>└──<span class="w"> </span>Word<span class="w">        </span>
+</pre></div>
+</div>
+</section>
 <dl class="py class">
 <dt class="sig sig-object py" id="shell.ast.nodes.Lines">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">shell.ast.nodes.</span></span><span class="sig-name descname"><span class="pre">Lines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Node</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/shell/ast/nodes.html#Lines"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell.ast.nodes.Lines" title="Permalink to this definition">¶</a></dt>
@@ -386,6 +478,7 @@ Nodes that contain multiple nodes.</p>
 <dt class="sig sig-object py" id="shell.ast.nodes.Nodes">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">shell.ast.nodes.</span></span><span class="sig-name descname"><span class="pre">Nodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><span class="pre">Node</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/shell/ast/nodes.html#Nodes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell.ast.nodes.Nodes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Node</span></code></p>
+<p>A container class for <cite>Node</cite>’s.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="shell.ast.nodes.Nodes.data">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></em><a class="headerlink" href="#shell.ast.nodes.Nodes.data" title="Permalink to this definition">¶</a></dt>
@@ -417,6 +510,17 @@ Nodes that contain multiple nodes.</p>
 </section>
 <section id="module-shell.ast.term">
 <span id="shell-ast-term-module"></span><h2>shell.ast.term module<a class="headerlink" href="#module-shell.ast.term" title="Permalink to this heading">¶</a></h2>
+<section id="term">
+<h3>Term<a class="headerlink" href="#term" title="Permalink to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Classes</span>
+Term
+├──<span class="w"> </span>Method<span class="w"> </span><span class="c1"># f()</span>
+├──<span class="w"> </span>Quoted<span class="w"> </span><span class="c1"># &quot;abc&quot;</span>
+├──<span class="w"> </span>Variable<span class="w"> </span><span class="nv">$x</span>
+└──<span class="w"> </span>Word
+</pre></div>
+</div>
+</section>
 <dl class="py class">
 <dt class="sig sig-object py" id="shell.ast.term.Method">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">shell.ast.term.</span></span><span class="sig-name descname"><span class="pre">Method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/shell/ast/term.html#Method"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shell.ast.term.Method" title="Permalink to this definition">¶</a></dt>
@@ -494,10 +598,11 @@ Nodes that contain multiple nodes.</p>
 <li class="toctree-l1"><a class="reference internal" href="../pages/SHELL_REFERENCE.html">Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pages/lib.html">Example Mash script</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pages/shell_help.html">Shell CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/ast.html">Shell AST</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../pages/reference.html">Library Reference</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pages/reference.html">Library Reference</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Packages:</span></p>
 <ul class="current">
