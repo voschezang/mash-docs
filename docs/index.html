@@ -75,6 +75,8 @@
 <p>Packages</p>
 <ul class="simple">
 <li><p><a class="reference external" href="pages/shell.html">Shell</a></p></li>
+<li><p><a class="reference external" href="modules/filesystem.html">Filesystem</a></p></li>
+<li><p><a class="reference external" href="modules/object_parser.html#module-object_parser.factory">Object parser</a></p></li>
 <li><p><a class="reference external" href="modules/server.html#module-server.server">Server</a></p></li>
 <li><p><a class="reference external" href="modules/webtools.html#module-webtools">Webtools</a></p></li>
 </ul>
@@ -95,8 +97,8 @@
 </section>
 <section id="main-classes-summary">
 <h2>Main Classes (Summary)<a class="headerlink" href="#main-classes-summary" title="Permalink to this heading">¶</a></h2>
-<section id="filesystem">
-<h3>Filesystem<a class="headerlink" href="#filesystem" title="Permalink to this heading">¶</a></h3>
+<section id="id1">
+<h3>Filesystem<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference internal" href="#mash.filesystem.FileSystem" title="mash.filesystem.FileSystem"><code class="xref py py-meth docutils literal notranslate"><span class="pre">mash.filesystem.FileSystem()</span></code></a></p></li>
 <li><p><a class="reference internal" href="#mash.filesystem.Discoverable" title="mash.filesystem.Discoverable"><code class="xref py py-meth docutils literal notranslate"><span class="pre">mash.filesystem.Discoverable()</span></code></a></p></li>
@@ -105,8 +107,8 @@
 <li><p><a class="reference internal" href="#mash.filesystem.view.View" title="mash.filesystem.view.View"><code class="xref py py-meth docutils literal notranslate"><span class="pre">mash.filesystem.view.View()</span></code></a></p></li>
 </ul>
 </section>
-<section id="object-parser">
-<h3>Object Parser<a class="headerlink" href="#object-parser" title="Permalink to this heading">¶</a></h3>
+<section id="id2">
+<h3>Object Parser<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><dl class="simple">
 <dt><a class="reference internal" href="#mash.object_parser.build" title="mash.object_parser.build"><code class="xref py py-meth docutils literal notranslate"><span class="pre">mash.object_parser.build()</span></code></a></dt><dd><ul>
@@ -120,8 +122,8 @@
 <li><p><a class="reference internal" href="#mash.object_parser.OAS" title="mash.object_parser.OAS"><code class="xref py py-meth docutils literal notranslate"><span class="pre">mash.object_parser.OAS()</span></code></a></p></li>
 </ul>
 </section>
-<section id="id1">
-<h3>Shell<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
+<section id="id3">
+<h3>Shell<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><dl class="simple">
 <dt><a class="reference internal" href="#mash.shell.ShellWithFileSystem" title="mash.shell.ShellWithFileSystem"><code class="xref py py-meth docutils literal notranslate"><span class="pre">mash.shell.ShellWithFileSystem()</span></code></a></dt><dd><ul>
@@ -209,8 +211,8 @@ Objects that start with HIDE_PREFIX are ignored.</p>
 <dt class="sig sig-object py" id="mash.filesystem.FileSystem.mv">
 <span class="sig-name descname"><span class="pre">mv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">references</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mash/filesystem/filesystem.html#FileSystem.mv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mash.filesystem.FileSystem.mv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Move references.</p>
-<section id="id2">
-<h3>Usage<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
+<section id="id4">
+<h3>Usage<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mv</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="c1"># rename the reference a to b.</span>
 <span class="n">mv</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="c1"># move references *a to b</span>
 </pre></div>
