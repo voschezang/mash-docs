@@ -59,11 +59,11 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="pages/README.html">README</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pages/shell.html">Implementation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pages/SHELL_REFERENCE.html">Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pages/lib.html">Example Mash script</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pages/shell_help.html">Shell CLI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pages/ast.html">Shell AST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/mash_examples.html">Example code</a></li>
 </ul>
+</div>
+<div class="toctree-wrapper compound">
 </div>
 <section id="library-reference">
 <h2>Library Reference<a class="headerlink" href="#library-reference" title="Permalink to this heading">¶</a></h2>
@@ -75,9 +75,10 @@
 </div>
 <p>Packages</p>
 <ul class="simple">
-<li><p><a class="reference external" href="pages/shell.html">Shell</a></p></li>
 <li><p><a class="reference external" href="modules/filesystem.html">Filesystem</a></p></li>
 <li><p><a class="reference external" href="modules/object_parser.html#module-object_parser.factory">Object parser</a></p></li>
+<li><p><a class="reference external" href="pages/shell_classes.html">Shell</a></p></li>
+<li><p><a class="reference external" href="pages/ast.html">Shell AST</a></p></li>
 <li><p><a class="reference external" href="modules/server.html#module-server.server">Server</a></p></li>
 <li><p><a class="reference external" href="modules/webtools.html#module-webtools">Webtools</a></p></li>
 </ul>
@@ -404,8 +405,10 @@ Stay in the current directory by default.</p>
 <dd><p>Extend <cite>BaseShell</cite> with a language model:
 Support multiline statements, pipes, conditions, variables and inline function definitions.</p>
 <p>The language grammer is based on a BNF-based grammer, which is defined in 
-<a class="reference external" href="https://voschezang.github.io/mash-docs/modules/shell.grammer.html#module-shell.grammer.parser">shell.grammer.parser</a>
-The language implementation is defined in shell.ast.</p>
+<a class="reference external" href="https://voschezang.github.io/mash-docs/modules/shell.grammer.html#module-shell.grammer.parser">shell.grammer.parser</a></p>
+<p>The AST is implemented here:
+<a class="reference external" href="https://voschezang.github.io/mash-docs/pages/ast.html">shell.ast</a></p>
+<p>The language implementation is defined in shell.ast.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="mash.shell.Shell.do_map">
 <span class="sig-name descname"><span class="pre">do_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mash/shell/shell.html#Shell.do_map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mash.shell.Shell.do_map" title="Permalink to this definition">¶</a></dt>
@@ -461,8 +464,8 @@ This class is restricted to functionality that requires Cmd methods to be overrr
 <span class="sig-name descname"><span class="pre">add_functions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">functions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.11)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ShellFunction</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mash/shell/base.html#BaseShell.add_functions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mash.shell.base.BaseShell.add_functions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add functions to this instance at runtime.
 Use a key to select a group of functions.</p>
-<section id="id5">
-<h3>Parameters<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h3>
+<section id="id6">
+<h3>Parameters<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h3>
 <dl class="simple">
 <dt>functions<span class="classifier">dict</span></dt><dd><p>A dictionary of functions to add.</p>
 </dd>
@@ -589,8 +592,8 @@ See base.is_hidden_function</p>
 <dt class="sig sig-object py" id="mash.shell.base.BaseShell.try_load_session">
 <span class="sig-name descname"><span class="pre">try_load_session</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.shell_session.json'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mash/shell/base.html#BaseShell.try_load_session"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mash.shell.base.BaseShell.try_load_session" title="Permalink to this definition">¶</a></dt>
 <dd><p>Try to load a session. Ignore errors.</p>
-<section id="id6">
-<h3>Parameters<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h3>
+<section id="id7">
+<h3>Parameters<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h3>
 <dl class="simple">
 <dt>session<span class="classifier">str</span></dt><dd><p>The session file to load. If not given, use the default session.</p>
 </dd>
@@ -634,9 +637,13 @@ See base.is_hidden_function</p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="pages/README.html">README</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pages/shell.html">Implementation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pages/SHELL_REFERENCE.html">Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pages/lib.html">Example Mash script</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pages/shell_help.html">Shell CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/mash_examples.html">Example code</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pages/SHELL_REFERENCE.html">Mash Language Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/lib.html">Example Mash script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pages/shell_classes.html">Shell Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pages/ast.html">Shell AST</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference:</span></p>

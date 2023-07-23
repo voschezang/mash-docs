@@ -14,7 +14,7 @@
     <script src="../static/sphinx_highlight.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Language Reference" href="SHELL_REFERENCE.html" />
+    <link rel="next" title="Shell" href="shell_help.html" />
     <link rel="prev" title="Mash | My Automation Shell" href="README.html" /> 
   </head><body>
     <div class="header-wrapper" role="banner">
@@ -24,7 +24,7 @@
         <div class="rel" role="navigation" aria-label="related navigation">
           <a href="README.html" title="Mash | My Automation Shell"
              accesskey="P">previous</a> |
-          <a href="SHELL_REFERENCE.html" title="Language Reference"
+          <a href="shell_help.html" title="Shell"
              accesskey="N">next</a> |
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |
@@ -46,15 +46,7 @@
 <h1>Implementation<a class="headerlink" href="#implementation" title="Permalink to this heading">¶</a></h1>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Shell</span></code> class is based on <code class="docutils literal notranslate"><span class="pre">cmd.Cmd</span></code>. It extends it with a custom grammer, user-definable variables, functions, pipes and more.</p>
-<p><code class="docutils literal notranslate"><span class="pre">Cmd2</span></code> extends <a class="reference external" href="https://docs.python.org/3.11/library/cmd.html"><code class="docutils literal notranslate"><span class="pre">cmd.Cmd</span></code></a> with a few basic methods. This can be used as an example as how to write a custom subclass for <code class="docutils literal notranslate"><span class="pre">Cmd</span></code> or <code class="docutils literal notranslate"><span class="pre">Shell</span></code>.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cmd.Cmd<span class="w"> </span><span class="c1"># Python&#39;s builtin framework for CLI tools</span>
-└──<span class="w"> </span>Cmd2<span class="w"> </span><span class="c1"># Add error handling and I/O methods</span>
-<span class="w">    </span>└──<span class="w"> </span>BaseShell<span class="w"> </span><span class="c1"># Support environment variables and sessions</span>
-<span class="w">        </span>└──<span class="w"> </span>Shell<span class="w"> </span><span class="c1"># Use a language model: shell.ast</span>
-</pre></div>
-</div>
-<p>The main datastructure is <code class="docutils literal notranslate"><span class="pre">mash.filesystem</span></code>. It’s inferface is inspired by unix filesystems. It is used to:</p>
+<p>See <a class="reference external" href="https://voschezang.github.io/mash-docs/pages/shell_classes.html">shell subclasses</a>. The main datastructure of <code class="docutils literal notranslate"><span class="pre">Shell</span></code>  is <code class="docutils literal notranslate"><span class="pre">mash.filesystem</span></code>. It’s inferface is inspired by unix filesystems. It is used to:</p>
 <ul class="simple">
 <li><p>Implement local/global variable scopes in <code class="docutils literal notranslate"><span class="pre">Shell</span></code>.</p></li>
 <li><p>Let a user browse REST-like resources (directories) with CRUD operations:</p>
@@ -64,10 +56,9 @@
 </ul>
 </li>
 </ul>
-<p>The class discoverable</p>
 <section id="module-tree">
 <h3>Module Tree<a class="headerlink" href="#module-tree" title="Permalink to this heading">¶</a></h3>
-<p>In <a class="reference external" href="https://github.com/voschezang/mash/tree/main/src">src</a>.</p>
+<p>For more details, see the overview of the <a class="reference external" href="https://voschezang.github.io/mash-docs/pages/shell_classes.html">Shell classes</a> overview, the <a class="reference external" href="https://voschezang.github.io/mash-docs/pages/ast.html">AST classes</a> and the full <a class="reference external" href="https://github.com/voschezang/mash/tree/main/src">source code</a>.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>src
 ├──<span class="w"> </span>examples<span class="w"> </span><span class="c1"># Examples written in Python</span>
 │
@@ -88,10 +79,7 @@
 <span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>ast<span class="w"> </span><span class="c1"># The Abstract Syntax Tree (AST) and related logic</span>
 <span class="w">    </span>│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span><span class="c1"># Node, Word, Lines</span>
 <span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>grammer<span class="w"> </span><span class="c1"># Parse raw text based on BNF grammer and build the AST</span>
-<span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>internals
-<span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>cmd2.py<span class="w"> </span><span class="c1"># An extension of cmd.Cmd</span>
-<span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>shell.py<span class="w"> </span><span class="c1"># Extend Cmd2 with the language model</span>
-<span class="w">    </span>│<span class="w">   </span>└──<span class="w"> </span>with_filesystem.py
+<span class="w">    </span>│<span class="w">   </span>└──<span class="w"> </span>ShellWithFileSystem,<span class="w"> </span>Shell,<span class="w"> </span>BaseShell,<span class="w"> </span>Cmd2
 <span class="w">    </span>│
 <span class="w">    </span>├──<span class="w"> </span>subshell.py
 <span class="w">    </span>└──<span class="w"> </span>cli.py<span class="w"> </span><span class="c1"># A CLI that combines Shell with quo.Prompt</span>
@@ -109,59 +97,15 @@
 <li><p>This is used to build the tree.</p></li>
 <li><p>Each <em>node</em> in the AST is a class with it’s own behaviour.</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Node</span><span class="p">(</span><span class="nb">str</span><span class="p">);</span> <span class="c1"># incl. Word, Variable, QuotedString</span>
-<span class="k">class</span> <span class="nc">Nodes</span><span class="p">(</span><span class="nb">str</span><span class="p">);</span>
-<span class="k">class</span> <span class="nc">Lines</span><span class="p">(</span><span class="nb">str</span><span class="p">);</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>Lines
+└──<span class="w"> </span>Nodes
+<span class="w">    </span>└──<span class="w"> </span>Node
 </pre></div>
 </div>
+<p>See <a class="reference external" href="https://voschezang.github.io/mash-docs/pages/ast.html"><code class="docutils literal notranslate"><span class="pre">shell.ast</span></code></a>.</p>
 </section>
 <section id="shell">
 <h3>Shell<a class="headerlink" href="#shell" title="Permalink to this heading">¶</a></h3>
-<p>In pseudocode:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cmd</span>
-
-<span class="k">class</span> <span class="nc">ShellWithFileSystem</span><span class="p">:</span>
-    <span class="n">shell</span><span class="p">:</span> <span class="n">Shell</span>
-    <span class="n">repository</span><span class="p">:</span> <span class="n">FileSystem</span> <span class="c1"># a directory or REST resource</span>
-
-<span class="k">class</span> <span class="nc">Shell</span><span class="p">(</span><span class="n">Cmd2</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Shell.</span>
-<span class="sd">    Support multiline statements, pipes, conditions, variables and inline function definitions.</span>
-<span class="sd">    Use a BNF-based grammer in `parser.py` to construct an AST.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-<span class="k">class</span> <span class="nc">BaseShell</span><span class="p">(</span><span class="n">Cmd2</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Extend Cmd with various capabilities.</span>
-<span class="sd">    This class is restricted to functionality that requires Cmd methods to be overrriden.</span>
-
-<span class="sd">    Features:</span>
-<span class="sd">    - An environment with local and global variable scopes.</span>
-<span class="sd">    - Save/load sessions.</span>
-<span class="sd">    - Decotion with functions, both at runtime and compile time.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">env</span><span class="p">:</span> <span class="n">FileSystem</span> <span class="c1"># variable scopes</span>
-
-    <span class="k">def</span> <span class="nf">save_session</span><span class="p">();</span>
-    <span class="k">def</span> <span class="nf">load_session</span><span class="p">();</span>
-    <span class="k">def</span> <span class="nf">add_functions</span><span class="p">();</span>
-    <span class="k">def</span> <span class="nf">remove_functions</span><span class="p">();</span>
-
-<span class="k">class</span> <span class="nc">Cmd2</span><span class="p">(</span><span class="n">cmd</span><span class="o">.</span><span class="n">Cmd</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Extend cmd.Cmd with various capabilities.</span>
-<span class="sd">    This class is restricted to functionality that requires Cmd methods to be overrriden.</span>
-
-<span class="sd">    Features:</span>
-<span class="sd">    - Confirmation mode to allow a user to accept or decline commands.</span>
-<span class="sd">    - Error handling.</span>
-<span class="sd">    - I/O methods: cat, source, print, println, exit</span>
-<span class="sd">    - String methods: echo, flatten</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="k">def</span> <span class="nf">cmdloop</span><span class="p">();</span>
-    <span class="k">def</span> <span class="nf">onecmd</span><span class="p">();</span>
-    <span class="k">def</span> <span class="nf">default</span><span class="p">();</span>
-</pre></div>
-</div>
 </section>
 <section id="filesystem">
 <h3>Filesystem<a class="headerlink" href="#filesystem" title="Permalink to this heading">¶</a></h3>
@@ -224,9 +168,14 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="README.html">README</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Implementation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SHELL_REFERENCE.html">Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lib.html">Example Mash script</a></li>
 <li class="toctree-l1"><a class="reference internal" href="shell_help.html">Shell CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/mash_examples.html">Example code</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="SHELL_REFERENCE.html">Mash Language Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.html">Example Mash script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell_classes.html">Shell Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ast.html">Shell AST</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference:</span></p>
 <ul>
@@ -260,7 +209,7 @@
           <div role="navigation" aria-label="related navigaton">
             <a href="README.html" title="Mash | My Automation Shell"
               >previous</a> |
-            <a href="SHELL_REFERENCE.html" title="Language Reference"
+            <a href="shell_help.html" title="Shell"
               >next</a> |
             <a href="../py-modindex.html" title="Python Module Index"
               >modules</a> |

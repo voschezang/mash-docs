@@ -15,14 +15,14 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Math" href="lib.html" />
-    <link rel="prev" title="Implementation" href="shell.html" /> 
+    <link rel="prev" title="Examples" href="../modules/mash_examples.html" /> 
   </head><body>
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
           href="../index.html">Mash  documentation</a></div>
         <div class="rel" role="navigation" aria-label="related navigation">
-          <a href="shell.html" title="Implementation"
+          <a href="../modules/mash_examples.html" title="Examples"
              accesskey="P">previous</a> |
           <a href="lib.html" title="Math"
              accesskey="N">next</a> |
@@ -46,7 +46,7 @@
 <h1>Language Reference<a class="headerlink" href="#language-reference" title="Permalink to this heading">¶</a></h1>
 <p>The syntax and grammar is a mix of Bash and Python. It relies on pipes to pass strings between commands. Statements are mainly separated by whitespace and semicolons.</p>
 <p>There are build-in methods and user-defined functions. Methods such as <code class="docutils literal notranslate"><span class="pre">print</span></code> are bound to methods with the name <code class="docutils literal notranslate"><span class="pre">do_print</span></code>. Functions can be either one-liners or multiline functions.</p>
-<p>For examples, see <a class="reference external" href="https://github.com/voschezang/mash/blob/main/src/lib/math.sh">src.lib.math.sh</a>.</p>
+<p>For examples, see <a class="reference external" href="https://github.com/voschezang/mash/blob/main/src/lib/math.sh">src.lib.math.sh</a>. The AST can be found [here](file:///Users/mark/src/python/mash/docs/build/html/pages/ast.html).</p>
 <p>[toc]</p>
 <section id="by-type">
 <h2>By Type<a class="headerlink" href="#by-type" title="Permalink to this heading">¶</a></h2>
@@ -386,12 +386,43 @@ range 10 &gt;&gt;= math 10 * $ + 1 |&gt; reduce sum
           
           <h3>Table of Contents</h3>
           <p class="caption" role="heading"><span class="caption-text">Usage:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="README.html">README</a></li>
 <li class="toctree-l1"><a class="reference internal" href="shell.html">Implementation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lib.html">Example Mash script</a></li>
 <li class="toctree-l1"><a class="reference internal" href="shell_help.html">Shell CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/mash_examples.html">Example code</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Mash Language Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#by-type">By Type</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#standard-expressions">Standard Expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#conditions-and-branches">Conditions and Branches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#maps-and-loops">Maps and Loops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shell-interop">Shell Interop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#environment-variables">Environment Variables</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#environments">Environments</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#globbing">Globbing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#inline-functions">Inline Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#multiline-functions">Multiline Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#built-in-commands">Built-in Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#symbol-reference">Symbol Reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#keywords">Keywords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#built-in-functions">Built-in Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#proposals">Proposals</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="lib.html">Example Mash script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell_classes.html">Shell Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ast.html">Shell AST</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference:</span></p>
 <ul>
@@ -423,7 +454,7 @@ range 10 &gt;&gt;= math 10 * $ + 1 |&gt; reduce sum
       <div class="footer">
         <div class="left">
           <div role="navigation" aria-label="related navigaton">
-            <a href="shell.html" title="Implementation"
+            <a href="../modules/mash_examples.html" title="Examples"
               >previous</a> |
             <a href="lib.html" title="Math"
               >next</a> |
