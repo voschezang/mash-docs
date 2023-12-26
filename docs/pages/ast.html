@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>AST &#8212; Mash  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../static/agogo.css" />
-    <link rel="stylesheet" type="text/css" href="../static/custom.css" />
-    <script data-url_root="../" id="documentation_options" src="../static/documentation_options.js"></script>
-    <script src="../static/doctools.js"></script>
-    <script src="../static/sphinx_highlight.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../static/agogo.css?v=47acb022" />
+    <link rel="stylesheet" type="text/css" href="../static/custom.css?v=6506ba54" />
+    <script src="../static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../static/doctools.js?v=888ff710"></script>
+    <script src="../static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Library Reference" href="reference.html" />
@@ -43,12 +43,49 @@
           <div class="body" role="main">
             
   <section id="ast">
-<span id="ast-reference"></span><h1>AST<a class="headerlink" href="#ast" title="Permalink to this heading">¶</a></h1>
+<span id="ast-reference"></span><h1>AST<a class="headerlink" href="#ast" title="Link to this heading">¶</a></h1>
 <p>An <a class="reference external" href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">Abstract Syntax Tree</a>.</p>
+<section id="grammer">
+<h2>Grammer<a class="headerlink" href="#grammer" title="Link to this heading">¶</a></h2>
+<p>Parse tokens.
+Tokens are defined in shell.grammer.tokenizer</p>
+<p>Parsing rules;</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">lines</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">a BREAK-separated sequence of line</span>
+<span class="nt">line</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">statement with optional INDENT</span>
+<span class="nt">statement</span><span class="p">:</span><span class="w"> </span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">assignment</span><span class="w">        </span><span class="c1"># a = 1</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">conditional</span><span class="w">       </span><span class="c1"># if .. then ..</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">conjunction</span><span class="w">       </span><span class="c1"># add 1 |&gt; echo</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">definition</span><span class="w">        </span><span class="c1"># f (x): ..</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">return_statement</span><span class="w">  </span><span class="c1"># return 1</span>
+<span class="nt">conjunction</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">a PIPE-separated sequence of expression</span>
+<span class="nt">expression</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">a command</span>
+</pre></div>
+</div>
+<p>Lines with an <cite>assignment</cite>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># a b   = 10 11  ;      print $a   ;</span>
+<span class="p">|</span>-------------<span class="o">||</span>-----<span class="o">||</span>----------<span class="o">||</span>-----<span class="p">|</span>
+<span class="w"> </span>assignment<span class="w">     </span><span class="k">break</span><span class="w">  </span>expression<span class="w">  </span><span class="k">break</span>
+<span class="p">|</span>-----<span class="p">|</span><span class="w"> </span><span class="p">|</span>-----<span class="p">|</span>
+<span class="w"> </span>terms<span class="w">   </span>terms
+</pre></div>
+</div>
+<p>A <cite>line</cite> with a <cite>conjunction</cite>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># range 1 5  |&gt;    print &#39;# &#39; |&gt;    print</span>
+<span class="p">|</span>----------------------------------------------<span class="p">|</span><span class="w"> </span><span class="o">(</span>conjunction<span class="o">)</span>
+<span class="p">|</span>----------<span class="o">||</span>----<span class="o">||</span>----------------------------<span class="p">|</span>
+<span class="w"> </span>expression<span class="w">  </span>pipe<span class="w">  </span>conjunction
+<span class="p">|</span>----------<span class="p">|</span><span class="w">      </span><span class="p">|</span>----------<span class="o">||</span>----<span class="o">||</span>----------<span class="p">|</span>
+<span class="w"> </span>terms<span class="w">             </span>expression<span class="w">  </span>pipe<span class="w">  </span>expression
+<span class="w">                  </span><span class="p">|</span>----------<span class="p">|</span><span class="w">      </span><span class="p">|</span>----------<span class="p">|</span>
+<span class="w">                  </span>terms<span class="w">              </span>terms
+</pre></div>
+</div>
+</section>
 <section id="core-classes">
-<h2>Core classes<a class="headerlink" href="#core-classes" title="Permalink to this heading">¶</a></h2>
+<h2>Core classes<a class="headerlink" href="#core-classes" title="Link to this heading">¶</a></h2>
 <section id="nodes">
-<h3>Nodes<a class="headerlink" href="#nodes" title="Permalink to this heading">¶</a></h3>
+<h3>Nodes<a class="headerlink" href="#nodes" title="Link to this heading">¶</a></h3>
 <p>A container class for <cite>Node</cite>’s.
 See <a class="reference external" href="https://voschezang.github.io/mash-docs/modules/shell.grammer.html#module-shell.grammer.parser">shell.grammer.parser</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tree</span>
@@ -59,7 +96,7 @@ Lines
 </div>
 </section>
 <section id="node">
-<h3>Node<a class="headerlink" href="#node" title="Permalink to this heading">¶</a></h3>
+<h3>Node<a class="headerlink" href="#node" title="Link to this heading">¶</a></h3>
 <p>An “edge” of the AST.</p>
 <p>Subclasses of <cite>Node</cite>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Node
@@ -87,7 +124,7 @@ Lines
 </div>
 </section>
 <section id="term">
-<h3>Term<a class="headerlink" href="#term" title="Permalink to this heading">¶</a></h3>
+<h3>Term<a class="headerlink" href="#term" title="Link to this heading">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Classes</span>
 Term
 ├──<span class="w"> </span>Method<span class="w"> </span><span class="c1"># f()</span>
@@ -98,7 +135,7 @@ Term
 </div>
 </section>
 <section id="conditions">
-<h3>Conditions<a class="headerlink" href="#conditions" title="Permalink to this heading">¶</a></h3>
+<h3>Conditions<a class="headerlink" href="#conditions" title="Link to this heading">¶</a></h3>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Classes</span>
 Condition
 ├──<span class="w"> </span>ElseCondition
@@ -128,7 +165,7 @@ Condition
 </section>
 </section>
 <section id="additional-classes">
-<h2>Additional classes<a class="headerlink" href="#additional-classes" title="Permalink to this heading">¶</a></h2>
+<h2>Additional classes<a class="headerlink" href="#additional-classes" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mash.shell.ast.function_definition.</span></span><span class="sig-name descname"><span class="pre">FunctionDefinition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">body</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mash/shell/ast/function_definition.html#FunctionDefinition"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
@@ -156,7 +193,7 @@ f<span class="w"> </span><span class="m">2</span><span class="w"> </span><span c
 
 <dl class="py class">
 <dt class="sig sig-object py">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mash.shell.ast.infix.</span></span><span class="sig-name descname"><span class="pre">Assign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mash/shell/ast/infix.html#Assign"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mash.shell.ast.infix.</span></span><span class="sig-name descname"><span class="pre">Assign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mash/shell/ast/infix.html#Assign"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Assign a value to a variable.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># static assignment</span>
 <span class="nv">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span>
@@ -170,7 +207,7 @@ range<span class="w"> </span><span class="m">10</span><span class="w"> </span>-&
 
 <dl class="py class">
 <dt class="sig sig-object py">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mash.shell.ast.infix.</span></span><span class="sig-name descname"><span class="pre">BashPipe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mash/shell/ast/infix.html#BashPipe"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mash.shell.ast.infix.</span></span><span class="sig-name descname"><span class="pre">BashPipe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mash/shell/ast/infix.html#BashPipe"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Pipe</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span>abcde<span class="w"> </span><span class="p">|</span><span class="w"> </span>egrep<span class="w"> </span>-o<span class="w"> </span><span class="s1">&#39;a??&#39;</span>
 </pre></div>
@@ -179,34 +216,34 @@ range<span class="w"> </span><span class="m">10</span><span class="w"> </span>-&
 
 <dl class="py class">
 <dt class="sig sig-object py">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mash.shell.ast.infix.</span></span><span class="sig-name descname"><span class="pre">BinaryExpression</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mash/shell/ast/infix.html#BinaryExpression"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mash.shell.ast.infix.</span></span><span class="sig-name descname"><span class="pre">BinaryExpression</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mash/shell/ast/infix.html#BinaryExpression"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd></dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mash.shell.ast.infix.</span></span><span class="sig-name descname"><span class="pre">Infix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mash/shell/ast/infix.html#Infix"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mash.shell.ast.infix.</span></span><span class="sig-name descname"><span class="pre">Infix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mash/shell/ast/infix.html#Infix"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd></dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mash.shell.ast.infix.</span></span><span class="sig-name descname"><span class="pre">LogicExpression</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mash/shell/ast/infix.html#LogicExpression"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mash.shell.ast.infix.</span></span><span class="sig-name descname"><span class="pre">LogicExpression</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mash/shell/ast/infix.html#LogicExpression"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd></dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mash.shell.ast.infix.</span></span><span class="sig-name descname"><span class="pre">Map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mash/shell/ast/infix.html#Map"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mash.shell.ast.infix.</span></span><span class="sig-name descname"><span class="pre">Map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mash/shell/ast/infix.html#Map"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Apply a function to each element of a sequence.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>range<span class="w"> </span><span class="m">10</span><span class="w"> </span>&gt;&gt;<span class="o">=</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span>The<span class="w"> </span>value<span class="w"> </span>is<span class="w"> </span>$<span class="w"> </span>.
 </pre></div>
 </div>
 <dl class="py method">
 <dt class="sig sig-object py">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">shell</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'\n'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterable" title="(in Python v3.11)"><span class="pre">Iterable</span></a></span></span><a class="reference internal" href="../_modules/mash/shell/ast/infix.html#Map.map"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">shell</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delimiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'\n'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterable" title="(in Python v3.12)"><span class="pre">Iterable</span></a></span></span><a class="reference internal" href="../_modules/mash/shell/ast/infix.html#Map.map"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Apply a function to every line.
 If <cite>$</cite> is present, then each line from stdin is inserted there.
 Otherwise each line is appended.</p>
 <section id="usage">
-<h3>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h3>
+<h3>Usage<a class="headerlink" href="#usage" title="Link to this heading">¶</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>println<span class="w"> </span>a<span class="w"> </span>b<span class="w"> </span><span class="p">|</span>&gt;<span class="w"> </span>map<span class="w"> </span><span class="nb">echo</span>
 println<span class="w"> </span>a<span class="w"> </span>b<span class="w"> </span><span class="p">|</span>&gt;<span class="w"> </span>map<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>prefix<span class="w"> </span>$<span class="w"> </span>suffix
 </pre></div>
@@ -218,7 +255,7 @@ println<span class="w"> </span>a<span class="w"> </span>b<span class="w"> </span
 
 <dl class="py class">
 <dt class="sig sig-object py">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mash.shell.ast.infix.</span></span><span class="sig-name descname"><span class="pre">Pipe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mash/shell/ast/infix.html#Pipe"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mash.shell.ast.infix.</span></span><span class="sig-name descname"><span class="pre">Pipe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mash/shell/ast/infix.html#Pipe"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>range<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="p">|</span>&gt;<span class="w"> </span>flatten
 </pre></div>
 </div>
@@ -239,7 +276,7 @@ println<span class="w"> </span>a<span class="w"> </span>b<span class="w"> </span
           <p class="caption" role="heading"><span class="caption-text">Usage:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="README.html">README</a></li>
-<li class="toctree-l1"><a class="reference internal" href="shell.html">Implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SHELL.html">Implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="shell_help.html">Shell CLI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/mash_examples.html">Example code</a></li>
 </ul>
@@ -248,6 +285,7 @@ println<span class="w"> </span>a<span class="w"> </span>b<span class="w"> </span
 <li class="toctree-l1"><a class="reference internal" href="lib.html">Example Mash script</a></li>
 <li class="toctree-l1"><a class="reference internal" href="shell_classes.html">Shell Classes</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Shell AST</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#grammer">Grammer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#core-classes">Core classes</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#nodes">Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#node">Node</a></li>
@@ -308,8 +346,8 @@ println<span class="w"> </span>a<span class="w"> </span>b<span class="w"> </span
         <div class="right">
           
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2023, Voschezang.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
+    &#169; Copyright 2023, Voschezang.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
         </div>
         <div class="clearer"></div>

@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>mash &#8212; Mash  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../static/agogo.css" />
-    <link rel="stylesheet" type="text/css" href="../static/custom.css" />
-    <script data-url_root="../" id="documentation_options" src="../static/documentation_options.js"></script>
-    <script src="../static/doctools.js"></script>
-    <script src="../static/sphinx_highlight.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../static/agogo.css?v=47acb022" />
+    <link rel="stylesheet" type="text/css" href="../static/custom.css?v=6506ba54" />
+    <script src="../static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../static/doctools.js?v=888ff710"></script>
+    <script src="../static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="cli module" href="cli.html" />
@@ -43,7 +43,7 @@
           <div class="body" role="main">
             
   <section id="mash">
-<h1>mash<a class="headerlink" href="#mash" title="Permalink to this heading">¶</a></h1>
+<h1>mash<a class="headerlink" href="#mash" title="Link to this heading">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="cli.html">cli module</a><ul>
@@ -96,6 +96,7 @@
 <li class="toctree-l4"><a class="reference internal" href="filesystem.html#filesystem.filesystem.FileSystem.copy"><code class="docutils literal notranslate"><span class="pre">FileSystem.copy()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="filesystem.html#filesystem.filesystem.FileSystem.cp"><code class="docutils literal notranslate"><span class="pre">FileSystem.cp()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="filesystem.html#filesystem.filesystem.FileSystem.cwd"><code class="docutils literal notranslate"><span class="pre">FileSystem.cwd</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="filesystem.html#filesystem.filesystem.FileSystem.foreach"><code class="docutils literal notranslate"><span class="pre">FileSystem.foreach()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="filesystem.html#filesystem.filesystem.FileSystem.full_path"><code class="docutils literal notranslate"><span class="pre">FileSystem.full_path</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="filesystem.html#filesystem.filesystem.FileSystem.get"><code class="docutils literal notranslate"><span class="pre">FileSystem.get()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="filesystem.html#filesystem.filesystem.FileSystem.home"><code class="docutils literal notranslate"><span class="pre">FileSystem.home</span></code></a></li>
@@ -410,6 +411,7 @@
 <li class="toctree-l4"><a class="reference internal" href="shell.ast.html#module-shell.ast.infix">shell.ast.infix module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="shell.ast.html#module-shell.ast.node">shell.ast.node module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="shell.ast.html#module-shell.ast.nodes">shell.ast.nodes module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.ast.html#module-shell.ast.set_definition">shell.ast.set_definition module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="shell.ast.html#module-shell.ast.term">shell.ast.term module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="shell.ast.html#module-shell.ast">Module contents</a></li>
 </ul>
@@ -479,13 +481,21 @@
 <li class="toctree-l4"><a class="reference internal" href="shell.html#shell.cmd2.Cmd2.do_range"><code class="docutils literal notranslate"><span class="pre">Cmd2.do_range()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="shell.html#shell.cmd2.Cmd2.do_shell"><code class="docutils literal notranslate"><span class="pre">Cmd2.do_shell()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="shell.html#shell.cmd2.Cmd2.do_source"><code class="docutils literal notranslate"><span class="pre">Cmd2.do_source()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#shell.cmd2.Cmd2.ignore_invalid_syntax"><code class="docutils literal notranslate"><span class="pre">Cmd2.ignore_invalid_syntax</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="shell.html#shell.cmd2.Cmd2.intro"><code class="docutils literal notranslate"><span class="pre">Cmd2.intro</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#shell.cmd2.Cmd2.mode"><code class="docutils literal notranslate"><span class="pre">Cmd2.mode</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="shell.html#shell.cmd2.Cmd2.none"><code class="docutils literal notranslate"><span class="pre">Cmd2.none()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="shell.html#shell.cmd2.Cmd2.onecmd"><code class="docutils literal notranslate"><span class="pre">Cmd2.onecmd()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="shell.html#shell.cmd2.Cmd2.onecmd_inner"><code class="docutils literal notranslate"><span class="pre">Cmd2.onecmd_inner()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="shell.html#shell.cmd2.Cmd2.onecmd_prehook"><code class="docutils literal notranslate"><span class="pre">Cmd2.onecmd_prehook()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="shell.html#shell.cmd2.Cmd2.onecmd_raw"><code class="docutils literal notranslate"><span class="pre">Cmd2.onecmd_raw()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="shell.html#shell.cmd2.Cmd2.prompt"><code class="docutils literal notranslate"><span class="pre">Cmd2.prompt</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#shell.cmd2.Cmd2.use_mode"><code class="docutils literal notranslate"><span class="pre">Cmd2.use_mode()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="shell.html#shell.cmd2.Mode"><code class="docutils literal notranslate"><span class="pre">Mode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#shell.cmd2.Mode.COMPILE"><code class="docutils literal notranslate"><span class="pre">Mode.COMPILE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#shell.cmd2.Mode.REPL"><code class="docutils literal notranslate"><span class="pre">Mode.REPL</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="shell.html#shell.cmd2.cat_file"><code class="docutils literal notranslate"><span class="pre">cat_file()</span></code></a></li>
@@ -518,12 +528,12 @@
 <li class="toctree-l3"><a class="reference internal" href="shell.html#shell.function.scope"><code class="docutils literal notranslate"><span class="pre">scope()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="shell.html#module-shell.parsetab">shell.parsetab module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="shell.html#module-shell.shell">shell.shell module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="shell.html#shell.shell.Shell"><code class="docutils literal notranslate"><span class="pre">Shell</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="shell.html#shell.shell.Shell.do_map"><code class="docutils literal notranslate"><span class="pre">Shell.do_map()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="shell.html#shell.shell.Shell.do_math"><code class="docutils literal notranslate"><span class="pre">Shell.do_math()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="shell.html#shell.shell.Shell.foldr"><code class="docutils literal notranslate"><span class="pre">Shell.foldr()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#shell.shell.Shell.keyboard_interrupt"><code class="docutils literal notranslate"><span class="pre">Shell.keyboard_interrupt()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="shell.html#shell.shell.Shell.onecmd_inner"><code class="docutils literal notranslate"><span class="pre">Shell.onecmd_inner()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="shell.html#shell.shell.Shell.parse"><code class="docutils literal notranslate"><span class="pre">Shell.parse()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="shell.html#shell.shell.Shell.run_commands"><code class="docutils literal notranslate"><span class="pre">Shell.run_commands()</span></code></a></li>
@@ -549,6 +559,7 @@
 <li class="toctree-l4"><a class="reference internal" href="shell.html#shell.with_filesystem.ShellWithFileSystem.cd"><code class="docutils literal notranslate"><span class="pre">ShellWithFileSystem.cd()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="shell.html#shell.with_filesystem.ShellWithFileSystem.complete_cd"><code class="docutils literal notranslate"><span class="pre">ShellWithFileSystem.complete_cd()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="shell.html#shell.with_filesystem.ShellWithFileSystem.default_method"><code class="docutils literal notranslate"><span class="pre">ShellWithFileSystem.default_method()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#shell.with_filesystem.ShellWithFileSystem.foreach"><code class="docutils literal notranslate"><span class="pre">ShellWithFileSystem.foreach()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="shell.html#shell.with_filesystem.ShellWithFileSystem.get"><code class="docutils literal notranslate"><span class="pre">ShellWithFileSystem.get()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="shell.html#shell.with_filesystem.ShellWithFileSystem.init_home"><code class="docutils literal notranslate"><span class="pre">ShellWithFileSystem.init_home()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="shell.html#shell.with_filesystem.ShellWithFileSystem.init_shell"><code class="docutils literal notranslate"><span class="pre">ShellWithFileSystem.init_shell()</span></code></a></li>
@@ -559,6 +570,7 @@
 <li class="toctree-l4"><a class="reference internal" href="shell.html#shell.with_filesystem.ShellWithFileSystem.set_shell_completions"><code class="docutils literal notranslate"><span class="pre">ShellWithFileSystem.set_shell_completions()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="shell.html#shell.with_filesystem.ShellWithFileSystem.unset_cd_aliases"><code class="docutils literal notranslate"><span class="pre">ShellWithFileSystem.unset_cd_aliases()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="shell.html#shell.with_filesystem.ShellWithFileSystem.update_prompt"><code class="docutils literal notranslate"><span class="pre">ShellWithFileSystem.update_prompt()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#shell.with_filesystem.ShellWithFileSystem.use"><code class="docutils literal notranslate"><span class="pre">ShellWithFileSystem.use()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -593,6 +605,7 @@
 <li class="toctree-l2"><a class="reference internal" href="util.html#util.concat_empty_container"><code class="docutils literal notranslate"><span class="pre">concat_empty_container()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="util.html#util.constant"><code class="docutils literal notranslate"><span class="pre">constant()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="util.html#util.crop"><code class="docutils literal notranslate"><span class="pre">crop()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="util.html#util.dataclass_to_string"><code class="docutils literal notranslate"><span class="pre">dataclass_to_string()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="util.html#util.decorate"><code class="docutils literal notranslate"><span class="pre">decorate()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="util.html#util.deserialize_dataclass"><code class="docutils literal notranslate"><span class="pre">deserialize_dataclass()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="util.html#util.deserialize_dataclasses"><code class="docutils literal notranslate"><span class="pre">deserialize_dataclasses()</span></code></a></li>
@@ -742,7 +755,7 @@
           <p class="caption" role="heading"><span class="caption-text">Usage:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../pages/README.html">README</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pages/shell.html">Implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/SHELL.html">Implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pages/shell_help.html">Shell CLI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mash_examples.html">Example code</a></li>
 </ul>
@@ -801,8 +814,8 @@
         <div class="right">
           
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2023, Voschezang.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
+    &#169; Copyright 2023, Voschezang.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
         </div>
         <div class="clearer"></div>

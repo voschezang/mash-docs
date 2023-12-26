@@ -14,3 +14,7 @@ copy:
 	mv docs/_static docs/static
 	# rename folder "static"
 	find docs -name '*.html' -type f -exec sed -i '' 's/_static/static/g' {} \;
+
+install:
+	python3 -m pip install -r requirements.txt
+	brew install sphinx-doc
