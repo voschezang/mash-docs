@@ -8,21 +8,21 @@
     <title>Shell &#8212; Mash  documentation</title>
     <link rel="stylesheet" type="text/css" href="../static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../static/agogo.css?v=47acb022" />
-    <link rel="stylesheet" type="text/css" href="../static/custom.css?v=6506ba54" />
+    <link rel="stylesheet" type="text/css" href="../static/custom.css?v=7ce463e7" />
     <script src="../static/documentation_options.js?v=5929fcd5"></script>
     <script src="../static/doctools.js?v=888ff710"></script>
     <script src="../static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="AST" href="ast.html" />
-    <link rel="prev" title="Math" href="lib.html" /> 
+    <link rel="prev" title="Examples" href="../modules/mash_examples.html" /> 
   </head><body>
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
           href="../index.html">Mash  documentation</a></div>
         <div class="rel" role="navigation" aria-label="related navigation">
-          <a href="lib.html" title="Math"
+          <a href="../modules/mash_examples.html" title="Examples"
              accesskey="P">previous</a> |
           <a href="ast.html" title="AST"
              accesskey="N">next</a> |
@@ -102,7 +102,7 @@ Support multiline statements, pipes, conditions, variables and inline function d
 
 <dl class="py class">
 <dt class="sig sig-object py">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mash.shell.</span></span><span class="sig-name descname"><span class="pre">ShellWithFileSystem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repository</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../index.html#mash.filesystem.FileSystem" title="mash.filesystem.filesystem.FileSystem"><span class="pre">FileSystem</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mash/shell/with_filesystem.html#ShellWithFileSystem"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mash.shell.</span></span><span class="sig-name descname"><span class="pre">ShellWithFileSystem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repository</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">FileSystem</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mash/shell/with_filesystem.html#ShellWithFileSystem"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd></dd></dl>
 
 </section>
@@ -117,17 +117,20 @@ Support multiline statements, pipes, conditions, variables and inline function d
         <div class="sidebar">
           
           <h3>Table of Contents</h3>
-          <p class="caption" role="heading"><span class="caption-text">Usage:</span></p>
+          <p class="caption" role="heading"><span class="caption-text">Mash Language:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="language_reference.html">Language Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="directories.html">Using directories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.html">Example scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell_help.html">Shell CLI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Source Code:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="README.html">README</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SHELL.html">Implementation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="shell_help.html">Shell CLI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/mash_examples.html">Example code</a></li>
 </ul>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="SHELL_REFERENCE.html">Mash Language Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lib.html">Example Mash script</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Shell Classes</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Shell classes</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#core-classes">Core classes</a></li>
 </ul>
 </li>
@@ -163,7 +166,7 @@ Support multiline statements, pipes, conditions, variables and inline function d
       <div class="footer">
         <div class="left">
           <div role="navigation" aria-label="related navigaton">
-            <a href="lib.html" title="Math"
+            <a href="../modules/mash_examples.html" title="Examples"
               >previous</a> |
             <a href="ast.html" title="AST"
               >next</a> |
@@ -182,7 +185,7 @@ Support multiline statements, pipes, conditions, variables and inline function d
         <div class="right">
           
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2023, Voschezang.
+    &#169; Copyright 2025, Voschezang.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
         </div>

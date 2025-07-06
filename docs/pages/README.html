@@ -8,24 +8,26 @@
     <title>Mash | My Automation Shell &#8212; Mash  documentation</title>
     <link rel="stylesheet" type="text/css" href="../static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../static/agogo.css?v=47acb022" />
-    <link rel="stylesheet" type="text/css" href="../static/custom.css?v=6506ba54" />
+    <link rel="stylesheet" type="text/css" href="../static/custom.css?v=7ce463e7" />
     <script src="../static/documentation_options.js?v=5929fcd5"></script>
     <script src="../static/doctools.js?v=888ff710"></script>
     <script src="../static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Shell" href="shell_help.html" />
-    <link rel="prev" title="Overview" href="../index.html" /> 
+    <link rel="next" title="Examples" href="../modules/mash_examples.html" />
+    <link rel="prev" title="Shell" href="shell_help.html" /> 
   </head><body>
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
           href="../index.html">Mash  documentation</a></div>
         <div class="rel" role="navigation" aria-label="related navigation">
-          <a href="../index.html" title="Overview"
-             accesskey="P">previous</a> |
           <a href="shell_help.html" title="Shell"
+             accesskey="P">previous</a> |
+          <a href="../modules/mash_examples.html" title="Examples"
              accesskey="N">next</a> |
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a>
         </div>
@@ -41,17 +43,19 @@
           <div class="body" role="main">
             
   <p><img alt="workflow-badge" src="https://github.com/voschezang/mash/actions/workflows/python-app.yml/badge.svg" />
-<a href="https://pypi.org/project/mash-shell" title="Python versions"><img src="https://img.shields.io/badge/python-3.8%20|%203.10%20|%203.11-blue"/></a>
+<a href="https://pypi.org/project/mash-shell" title="Python versions"><img src="https://img.shields.io/badge/python-3.11%20|%203.13-blue"/></a>
 <a href="https://pypi.org/project/mash-shell" title="PyPI"><img src="https://img.shields.io/badge/pypi-v0.2.0-blue"/></a></p>
 <p><strong>Docs</strong>:
-<a class="reference external" href="https://github.com/voschezang/mash/blob/main/README.md">MAIN</a>
-| <a class="reference external" href="https://voschezang.github.io/mash-docs/pages/shell_help.html">Shell</a>
-| <a class="reference external" href="https://github.com/voschezang/mash/blob/main/SHELL_REFERENCE.md">Reference</a>
+<a class="reference external" href="https://github.com/voschezang/mash/blob/main/README.md">Github</a>
 | <a class="reference external" href="https://voschezang.github.io/mash-docs/">Library Docs</a></p>
+<p><strong>Markdown docs</strong>:
+| <a class="reference external" href="https://github.com/voschezang/mash/blob/main/docs/source/pages/shell.md">Shell</a>
+| <a class="reference external" href="https://github.com/voschezang/mash/blob/main/docs/source/pages/language-reference.md">Language Reference</a>
+| <a class="reference external" href="https://github.com/voschezang/mash/blob/main/docs/source/pages/directories.md">Using Directories</a></p>
 <p><img src="https://github.com/voschezang/mash/blob/main/img/dall-E/bosh-terminal-icon.png?raw=true" style="height: 12em" alt="A drawing of a terminal"></img></p>
 <section id="mash-my-automation-shell">
 <h1>Mash | My Automation Shell<a class="headerlink" href="#mash-my-automation-shell" title="Link to this heading">¶</a></h1>
-<p>A <em>shell</em> that can be used to for automation and (REST) resource discovery. It can be used as a <a class="reference external" href="https://en.wikipedia.org/wiki/Command-line_interface">cli</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">repl</a>. It exposes a <a class="reference external" href="https://en.wikipedia.org/wiki/Turing_completeness">complete</a> programming <a class="reference internal" href="SHELL_REFERENCE.html"><span class="std std-doc">language</span></a> with variables, functions, conditions and pipes. The language can be tailored towards <a class="reference external" href="https://en.wikipedia.org/wiki/Domain-specific_language">domain-specific</a> applications and it has interoperability with Bash. In addition, this repository contains a library of  utilities.</p>
+<p>A <em>shell</em> that can be used to for automation and (REST) resource discovery. It can be used as a <a class="reference external" href="https://en.wikipedia.org/wiki/Command-line_interface">cli</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">repl</a>. It exposes a <a class="reference external" href="https://en.wikipedia.org/wiki/Turing_completeness">complete</a> programming <a class="reference internal" href="#SHELL_REFERENCE.md"><span class="xref myst">language</span></a> with variables, functions, conditions and pipes. The language can be tailored towards <a class="reference external" href="https://en.wikipedia.org/wiki/Domain-specific_language">domain-specific</a> applications and it has interoperability with Bash. In addition, this repository contains a library of  utilities.</p>
 <p>Features:</p>
 <ul class="simple">
 <li><p>A <strong>DSL</strong> that can interpret user-defined commands: <code class="docutils literal notranslate"><span class="pre">shell.py</span></code>.</p></li>
@@ -64,7 +68,7 @@
 </ul>
 <p>Links</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="SHELL_REFERENCE.html"><span class="std std-doc">Mash language reference</span></a></p></li>
+<li><p><a class="reference internal" href="#SHELL_REFERENCE.md"><span class="xref myst">Mash language reference</span></a></p></li>
 <li><p><a class="reference external" href="https://pypi.org/project/mash-shell">PyPI</a></p></li>
 <li><p><a class="reference external" href="https://github.com/voschezang/mash">github</a></p></li>
 <li><p><a class="reference external" href="https://voschezang.github.io/mash-docs/">docs</a></p></li>
@@ -86,7 +90,7 @@ python<span class="w"> </span>-m<span class="w"> </span>mash
 <ul class="simple">
 <li><p><a class="reference internal" href="#usage"><span class="xref myst">Usage</span></a></p>
 <ul>
-<li><p><a class="reference internal" href="#cli"><span class="xref myst">CLI</span></a></p></li>
+<li><p><a class="reference internal" href="../modules/cli.html#module-cli" title="cli"><span class="xref myst py py-mod">CLI</span></a></p></li>
 <li><p><a class="reference internal" href="#Filesystem%20(CRUD%20Operations)"><span class="xref myst">Filesystem (CRUD Operations)</span></a></p></li>
 <li><p><a class="reference internal" href="#Usage%20Examples"><span class="xref myst">Usage Examples</span></a></p></li>
 </ul>
@@ -101,7 +105,7 @@ python<span class="w"> </span>-m<span class="w"> </span>mash
 </section>
 <section id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Link to this heading">¶</a></h2>
-<p>See <a class="reference internal" href="SHELL_REFERENCE.html"><span class="std std-doc">reference</span></a>.</p>
+<p>See <a class="reference internal" href="#SHELL_REFERENCE.md"><span class="xref myst">reference</span></a>.</p>
 <section id="cli">
 <h3>CLI<a class="headerlink" href="#cli" title="Link to this heading">¶</a></h3>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>▶<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>mash<span class="w"> </span>-h
@@ -335,16 +339,20 @@ make<span class="w"> </span><span class="nb">test</span>
         <div class="sidebar">
           
           <h3>Table of Contents</h3>
-          <p class="caption" role="heading"><span class="caption-text">Usage:</span></p>
+          <p class="caption" role="heading"><span class="caption-text">Mash Language:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="language_reference.html">Language Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="directories.html">Using directories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.html">Example scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell_help.html">Shell CLI</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Source Code:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">README</a></li>
-<li class="toctree-l1"><a class="reference internal" href="shell_help.html">Shell CLI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/mash_examples.html">Example code</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="SHELL_REFERENCE.html">Mash Language Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lib.html">Example Mash script</a></li>
-<li class="toctree-l1"><a class="reference internal" href="shell_classes.html">Shell Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell_classes.html">Shell classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ast.html">Shell AST</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference:</span></p>
@@ -377,10 +385,12 @@ make<span class="w"> </span><span class="nb">test</span>
       <div class="footer">
         <div class="left">
           <div role="navigation" aria-label="related navigaton">
-            <a href="../index.html" title="Overview"
-              >previous</a> |
             <a href="shell_help.html" title="Shell"
+              >previous</a> |
+            <a href="../modules/mash_examples.html" title="Examples"
               >next</a> |
+            <a href="../py-modindex.html" title="Python Module Index"
+              >modules</a> |
             <a href="../genindex.html" title="General Index"
               >index</a>
           </div>
@@ -394,7 +404,7 @@ make<span class="w"> </span><span class="nb">test</span>
         <div class="right">
           
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2023, Voschezang.
+    &#169; Copyright 2025, Voschezang.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
         </div>

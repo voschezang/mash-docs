@@ -8,24 +8,26 @@
     <title>Language Reference &#8212; Mash  documentation</title>
     <link rel="stylesheet" type="text/css" href="../static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../static/agogo.css?v=47acb022" />
-    <link rel="stylesheet" type="text/css" href="../static/custom.css?v=6506ba54" />
+    <link rel="stylesheet" type="text/css" href="../static/custom.css?v=7ce463e7" />
     <script src="../static/documentation_options.js?v=5929fcd5"></script>
     <script src="../static/doctools.js?v=888ff710"></script>
     <script src="../static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Math" href="lib.html" />
-    <link rel="prev" title="Examples" href="../modules/mash_examples.html" /> 
+    <link rel="next" title="Directories" href="directories.html" />
+    <link rel="prev" title="Documentation" href="../index.html" /> 
   </head><body>
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
           href="../index.html">Mash  documentation</a></div>
         <div class="rel" role="navigation" aria-label="related navigation">
-          <a href="../modules/mash_examples.html" title="Examples"
+          <a href="../index.html" title="Documentation"
              accesskey="P">previous</a> |
-          <a href="lib.html" title="Math"
+          <a href="directories.html" title="Directories"
              accesskey="N">next</a> |
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a>
         </div>
@@ -42,10 +44,8 @@
             
   <section id="language-reference">
 <h1>Language Reference<a class="headerlink" href="#language-reference" title="Link to this heading">¶</a></h1>
-<p>The syntax and grammar is a mix of Bash and Python. It relies on pipes to pass strings between commands. Statements are mainly separated by whitespace and semicolons.</p>
-<p>There are build-in methods and user-defined functions. Methods such as <code class="docutils literal notranslate"><span class="pre">print</span></code> are bound to methods with the name <code class="docutils literal notranslate"><span class="pre">do_print</span></code>. Functions can be either one-liners or multiline functions.</p>
+<p>The language is a mix of Bash and Python. Statements are separated by whitespace and semicolons. Pipes are used to pass data between commands.</p>
 <p>For examples, see <a class="reference external" href="https://github.com/voschezang/mash/blob/main/src/lib/math.sh">src.lib.math.sh</a>. The AST can be found <a class="reference external" href="https://voschezang.github.io/mash-docs/pages/ast.html">here</a>.</p>
-<p>[toc]</p>
 <section id="by-type">
 <h2>By Type<a class="headerlink" href="#by-type" title="Link to this heading">¶</a></h2>
 <section id="standard-expressions">
@@ -368,10 +368,10 @@ Other operators: <code class="docutils literal notranslate"><span class="pre">ma
 <ul class="simple">
 <li><p>Simplicity of Python and performance of Haskell and Erlang</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># inf streams</span>
-<span class="n">a</span> <span class="o">*</span><span class="n">b</span> <span class="o">=</span> <span class="n">list_natural_numbers</span>
-<span class="c1"># pure functions can be executed in parallel, using a thread pool</span>
-<span class="nb">range</span> <span class="mi">10</span> <span class="o">&gt;&gt;=</span> <span class="n">math</span> <span class="mi">10</span> <span class="o">*</span> <span class="err">$</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">|&gt;</span> <span class="n">reduce</span> <span class="nb">sum</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># inf streams
+a *b = list_natural_numbers
+# pure functions can be executed in parallel, using a thread pool
+range 10 &gt;&gt;= math 10 * $ + 1 |&gt; reduce sum
 </pre></div>
 </div>
 <section id="queries">
@@ -393,12 +393,12 @@ Other operators: <code class="docutils literal notranslate"><span class="pre">ma
 <h4>Inner join<a class="headerlink" href="#inner-join" title="Link to this heading">¶</a></h4>
 <p><em>“Find users that own a at least one document”</em></p>
 <div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="gd">- SELECT name FROM users INNER JOIN documents ON users.id == document.owner</span>
-<span class="gi">+ {users | users.id in {documents.owner}} &gt;&gt;= show $1.name</span>
+<span class="gi">+ {users | users.id in {documents.owner}} &gt;&gt;= show name</span>
 </pre></div>
 </div>
 <p><em>“Show documents of each user”</em></p>
 <div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="gd">- SELECT users.name, documents.name FROM users LEFT JOIN documents ON users.id == document.owner</span>
-<span class="gi">+ { users documents | users.id = documents.owner } &gt;&gt;= show $1.email $2.name</span>
+<span class="gi">+ { users documents | users.id = documents.owner } &gt;&gt;= show $.u.email $.d.name</span>
 </pre></div>
 </div>
 <p>Note the similarity to ranges</p>
@@ -420,29 +420,17 @@ Other operators: <code class="docutils literal notranslate"><span class="pre">ma
         <div class="sidebar">
           
           <h3>Table of Contents</h3>
-          <p class="caption" role="heading"><span class="caption-text">Usage:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="README.html">README</a></li>
-<li class="toctree-l1"><a class="reference internal" href="shell_help.html">Shell CLI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../modules/mash_examples.html">Example code</a></li>
-</ul>
+          <p class="caption" role="heading"><span class="caption-text">Mash Language:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Mash Language Reference</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Language Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#by-type">By Type</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#standard-expressions">Standard Expressions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#conditions-and-branches">Conditions and Branches</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#maps-and-loops">Maps and Loops</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#shell-interop">Shell Interop</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#environment-variables">Environment Variables</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#environments">Environments</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="#environment-variables">Environment Variables</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#globbing">Globbing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#inline-functions">Inline Functions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#multiline-functions">Multiline Functions</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#built-in-commands">Built-in Commands</a></li>
 </ul>
 </li>
@@ -452,17 +440,22 @@ Other operators: <code class="docutils literal notranslate"><span class="pre">ma
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#proposals">Proposals</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#queries">Queries</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#show-tabular-data">Show tabular data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#inner-join">Inner join</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#queries">Queries</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="directories.html">Using directories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.html">Example scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell_help.html">Shell CLI</a></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="lib.html">Example Mash script</a></li>
-<li class="toctree-l1"><a class="reference internal" href="shell_classes.html">Shell Classes</a></li>
+<p class="caption" role="heading"><span class="caption-text">Source Code:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="README.html">README</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/mash_examples.html">Example code</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="shell_classes.html">Shell classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ast.html">Shell AST</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference:</span></p>
@@ -495,16 +488,18 @@ Other operators: <code class="docutils literal notranslate"><span class="pre">ma
       <div class="footer">
         <div class="left">
           <div role="navigation" aria-label="related navigaton">
-            <a href="../modules/mash_examples.html" title="Examples"
+            <a href="../index.html" title="Documentation"
               >previous</a> |
-            <a href="lib.html" title="Math"
+            <a href="directories.html" title="Directories"
               >next</a> |
+            <a href="../py-modindex.html" title="Python Module Index"
+              >modules</a> |
             <a href="../genindex.html" title="General Index"
               >index</a>
           </div>
           <div role="note" aria-label="source link">
               <br/>
-              <a href="../_sources/pages/SHELL_REFERENCE.md.txt"
+              <a href="../_sources/pages/language_reference.md.txt"
                 rel="nofollow">Show Source</a>
           </div>
         </div>
@@ -512,7 +507,7 @@ Other operators: <code class="docutils literal notranslate"><span class="pre">ma
         <div class="right">
           
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2023, Voschezang.
+    &#169; Copyright 2025, Voschezang.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
         </div>

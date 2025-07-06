@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Shell &#8212; Mash  documentation</title>
+    <title>Directories &#8212; Mash  documentation</title>
     <link rel="stylesheet" type="text/css" href="../static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../static/agogo.css?v=47acb022" />
     <link rel="stylesheet" type="text/css" href="../static/custom.css?v=7ce463e7" />
@@ -14,17 +14,17 @@
     <script src="../static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Mash | My Automation Shell" href="README.html" />
-    <link rel="prev" title="Math" href="lib.html" /> 
+    <link rel="next" title="Math" href="lib.html" />
+    <link rel="prev" title="Language Reference" href="language_reference.html" /> 
   </head><body>
     <div class="header-wrapper" role="banner">
       <div class="header">
         <div class="headertitle"><a
           href="../index.html">Mash  documentation</a></div>
         <div class="rel" role="navigation" aria-label="related navigation">
-          <a href="lib.html" title="Math"
+          <a href="language_reference.html" title="Language Reference"
              accesskey="P">previous</a> |
-          <a href="README.html" title="Mash | My Automation Shell"
+          <a href="lib.html" title="Math"
              accesskey="N">next</a> |
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |
@@ -42,58 +42,40 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="shell">
-<span id="shell-help"></span><h1>Shell<a class="headerlink" href="#shell" title="Link to this heading">¶</a></h1>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>usage: shell_example.py [-h] [-v] [-s] [-f FILE] [-r] [--session SESSION]
-                        [cmd ...]
-
-If no positional arguments are given then an interactive subshell is started.
-
-positional arguments:
-  cmd                A comma- or newline-separated list of commands
-
-options:
-  -h, --help         show this help message and exit
-  -v, --verbose
-  -s, --safe         Safe-mode. Ask for confirmation before executing commands.
-  -f, --file FILE    Read and run FILE as a command
-  -r, --reload       Reload last session
-  --session SESSION  Use SESSION
-
-Default Commands
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Run multiple Python commands by separating each command with colons or newlines.
-E.g.
-    ./shell.py &#39;print abc; print def&#39;
-
-Variables
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Assign constants or evaluate expressiosn:
-```
-    a = 100
-    b &lt;- print $a
-    echo $a $b
-```
-
-Interopability
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Interopability with Bash can be done with pipes:
-    `|&gt;` for Python.
-    `|`  for Bash
-    `&gt;-`  for Bash (write to file)
-    `&gt;&gt;`  for Bash (append to file)
-
-1. To stdin and stdout
-E.g.
-```
-    echo abc | ./shell.py print
-    ./shell.py &#39;print abc | echo&#39;
-```
+  <section id="directories">
+<h1>Directories<a class="headerlink" href="#directories" title="Link to this heading">¶</a></h1>
+<section id="change-directories">
+<h2>Change directories<a class="headerlink" href="#change-directories" title="Link to this heading">¶</a></h2>
+<p>Run <code class="docutils literal notranslate"><span class="pre">cd</span></code> or simply run the directory name as a command.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>repository<span class="w"> </span>$<span class="w"> </span>users<span class="w"> </span><span class="m">1000</span><span class="w"> </span><span class="c1"># go to user with id 1000 </span>
+repository/users/1000<span class="w"> </span>$
 </pre></div>
 </div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">TAB</span></code> for autocompletion. If no matching filename is found the nearest match is selected.</p>
+<p>Make sure to use <code class="docutils literal notranslate"><span class="pre">cd</span></code> if directory is shadowed by a function.</p>
+</section>
+<section id="show-directory-contents">
+<h2>Show directory contents<a class="headerlink" href="#show-directory-contents" title="Link to this heading">¶</a></h2>
+<p>Run <code class="docutils literal notranslate"><span class="pre">show</span></code> or simply double-tab <code class="docutils literal notranslate"><span class="pre">TAB</span></code>.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>repository/users/1000<span class="w"> </span>$<span class="w"> </span>show
+<span class="p">|</span><span class="w"> </span>keys<span class="w">   </span><span class="p">|</span><span class="w"> </span>values<span class="w">             </span><span class="p">|</span>
+<span class="p">|</span>:-------<span class="p">|</span>:-------------------<span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>email<span class="w">  </span><span class="p">|</span><span class="w"> </span>name.0@company.com<span class="w"> </span><span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>name<span class="w">   </span><span class="p">|</span><span class="w"> </span>name_0<span class="w">             </span><span class="p">|</span>
+</pre></div>
+</div>
+<p>Alternatively use <code class="docutils literal notranslate"><span class="pre">list</span></code> for a short listing.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>repository/users<span class="w"> </span>$<span class="w"> </span>list<span class="w"> </span><span class="c1"># list ids in resource</span>
+<span class="m">1000</span>
+<span class="m">1001</span>
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>repository/users/1000<span class="w"> </span>$<span class="w"> </span>list<span class="w"> </span><span class="c1"># list fields in resource</span>
+email
+name
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -108,9 +90,13 @@ E.g.
           <p class="caption" role="heading"><span class="caption-text">Mash Language:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="language_reference.html">Language Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="directories.html">Using directories</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using directories</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#change-directories">Change directories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#show-directory-contents">Show directory contents</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="lib.html">Example scripts</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Shell CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shell_help.html">Shell CLI</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Source Code:</span></p>
 <ul>
@@ -151,9 +137,9 @@ E.g.
       <div class="footer">
         <div class="left">
           <div role="navigation" aria-label="related navigaton">
-            <a href="lib.html" title="Math"
+            <a href="language_reference.html" title="Language Reference"
               >previous</a> |
-            <a href="README.html" title="Mash | My Automation Shell"
+            <a href="lib.html" title="Math"
               >next</a> |
             <a href="../py-modindex.html" title="Python Module Index"
               >modules</a> |
@@ -162,7 +148,7 @@ E.g.
           </div>
           <div role="note" aria-label="source link">
               <br/>
-              <a href="../_sources/pages/shell_help.rst.txt"
+              <a href="../_sources/pages/directories.md.txt"
                 rel="nofollow">Show Source</a>
           </div>
         </div>
